@@ -1,0 +1,39 @@
+{
+  "verified_at": "2026-09-12T20:40:27.111835+00:00",
+  "problem": "Docker engine and Neo4j accepted connections but did not respond to requests.",
+  "recovery": [
+    "Graceful Docker Desktop restart timed out after45seconds.",
+    "SIGTERM stopped Desktop children; the remaining unresponsive Docker supervisor required termination.",
+    "Started Docker Desktop and restarted only the existing SHOWROOM Neo4j container."
+  ],
+  "volumes_deleted": false,
+  "containers_after_engine_restart": [
+    "showroom-neo4j-1"
+  ],
+  "neo4j": {
+    "container_health": "healthy",
+    "volume": "showroom_showroom-neo4j",
+    "volume_created_at": "2026-09-12T19:27:58Z",
+    "system_database_created_at": "2026-09-12T19:28:01.805Z",
+    "backend_health": "connected",
+    "read_only_counts": {
+      "Product": 4,
+      "Style": 15,
+      "Room": 15,
+      "HAS_STYLE": 20,
+      "PREFERS": 37
+    }
+  },
+  "ambiguous_independent_read": {
+    "http_status": 200,
+    "id": "4adbc629-1359-4b19-bb75-74e9f38d26a3",
+    "title": "SHOWROOM \u2014 The living room",
+    "visibility": "restricted",
+    "merchandise_total_present": "219.97"
+  },
+  "backend_contract_tests": {
+    "passed": 23,
+    "provider_calls": "mocked; separate live GET evidence above"
+  },
+  "source_changes_during_runtime_recovery": false
+}

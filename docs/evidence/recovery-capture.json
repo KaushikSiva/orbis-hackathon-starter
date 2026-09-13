@@ -1,0 +1,72 @@
+{
+  "captured_at": "2026-09-12T19:42:58.414Z",
+  "url": "http://localhost:5190",
+  "footage": "Actual browser recording; no mock routes, generated UI, or prerecorded provider output inserted.",
+  "live_orbis_observed": false,
+  "ambiguous_save_observed": false,
+  "approval_attempted_without_credentials": true,
+  "health": {
+    "status": "ok",
+    "integrations": {
+      "reactor": {
+        "configured": false,
+        "status": "missing_key"
+      },
+      "ambiguous": {
+        "configured": false,
+        "status": "missing_key"
+      },
+      "neo4j": {
+        "configured": true,
+        "status": "connected"
+      }
+    },
+    "catalog": {
+      "count": 4,
+      "price_checked_at": "2026-09-12",
+      "mode": "curated merchant snapshot"
+    }
+  },
+  "room_id": "35b001d4-4ad5-442d-ac18-68a4a6a18427",
+  "budget": 900,
+  "keep": [
+    "existing sofa",
+    "windows & layout",
+    "existing artwork"
+  ],
+  "directive_statuses": [],
+  "shopping_total": 219.97,
+  "graph": {
+    "status": "connected",
+    "explanation": "Neo4j ranks Product → HAS_STYLE → Style ← PREFERS ← Room paths, then respects the remaining budget and keep constraints.",
+    "matched_tags": [
+      "minimal",
+      "natural",
+      "texture",
+      "warm"
+    ],
+    "excluded_categories": [
+      "sofa"
+    ],
+    "relationship_count": 5
+  },
+  "exports": [],
+  "page_errors": [],
+  "mobile_overflow": false,
+  "video": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1600,
+        "height": 900,
+        "pix_fmt": "yuv420p"
+      }
+    ],
+    "format": {
+      "duration": "120.000000",
+      "size": "6664751"
+    }
+  }
+}

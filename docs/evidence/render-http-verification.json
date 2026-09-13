@@ -1,0 +1,102 @@
+{
+  "verified_at": "2026-09-12T22:24:23.984640+00:00",
+  "url": "https://showroom-q4s4.onrender.com",
+  "external_document_writes": 0,
+  "orbis_session_created": false,
+  "anonymous_workspace_status": 401,
+  "static_runtime_status": 200,
+  "graph": "connected",
+  "ambiguous_read_status": 200,
+  "graph_relationship_count": 5,
+  "search_runs": [
+    {
+      "run": "first",
+      "http_ms": 16533.95,
+      "performance": {
+        "vision": {
+          "cache": {
+            "status": "miss",
+            "age_seconds": 0,
+            "ttl_seconds": 600
+          },
+          "elapsed_ms": 3177.41
+        },
+        "search": {
+          "cache": {
+            "status": "miss",
+            "age_seconds": 0,
+            "ttl_seconds": 900
+          },
+          "elapsed_ms": 12252.97,
+          "result_limit": 4,
+          "page_max_age_hours": 6
+        },
+        "graph_ms": 844.33,
+        "total_ms": 16274.76
+      },
+      "selection": {
+        "label": "Round coffee table",
+        "query": "light brown beige wood round coffee table",
+        "item_type": "coffee table",
+        "material": "wood",
+        "shape": "round",
+        "colors": [
+          "light brown",
+          "beige"
+        ],
+        "brand": null,
+        "brand_evidence": null,
+        "brand_status": "unknown",
+        "provider": "openai",
+        "model": "gpt-4.1-mini",
+        "match_type": "visually_similar"
+      },
+      "product_count": 4
+    },
+    {
+      "run": "repeat",
+      "http_ms": 198.17,
+      "performance": {
+        "vision": {
+          "cache": {
+            "status": "hit",
+            "age_seconds": 13.364,
+            "ttl_seconds": 600
+          },
+          "elapsed_ms": 7.34
+        },
+        "search": {
+          "cache": {
+            "status": "hit",
+            "age_seconds": 1.112,
+            "ttl_seconds": 900
+          },
+          "elapsed_ms": 0.15,
+          "result_limit": 4,
+          "page_max_age_hours": 6
+        },
+        "graph_ms": 59.82,
+        "total_ms": 67.34
+      },
+      "selection": {
+        "label": "Round coffee table",
+        "query": "light brown beige wood round coffee table",
+        "item_type": "coffee table",
+        "material": "wood",
+        "shape": "round",
+        "colors": [
+          "light brown",
+          "beige"
+        ],
+        "brand": null,
+        "brand_evidence": null,
+        "brand_status": "unknown",
+        "provider": "openai",
+        "model": "gpt-4.1-mini",
+        "match_type": "visually_similar"
+      },
+      "product_count": 4
+    }
+  ],
+  "passed": true
+}

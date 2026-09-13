@@ -1,0 +1,80 @@
+/* Actual local browser/HTTP smoke test. Never approves external document writes. */
+const {chromium}=require('../tooling/node_modules/playwright');
+const fs=require('node:fs');
+const path=require('node:path');
+const assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..');
+const evidence=path.join(root,'docs/evidence');
+const base=process.env.SHOWROOM_URL||'http://127.0.0.1:5190';
+const chrome='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+
+(async()=>{
+ const browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:fs.existsSync(chrome)?{executablePath:chrome}:{})});
+ try{
+  const page=await browser.newPage({viewport:{width:1280,height:900}});
+  page.setDefaultTimeout(15000);
+  const errors=[],checks=[];
+  page.on('pageerror',error=>errors.push(error.message));
+  await page.route('**/api/rooms/*/export',route=>route.abort('blockedbyclient'));
+  await page.goto(base);
+  const health=await page.request.get(base+'/api/health').then(response=>response.json());
+  await page.getByRole('heading',{name:'The living room.'}).waitFor();
+  await page.getByLabel('Upload room photo',{exact:true}).setInputFiles(path.join(root,'frontend/public/images/sample-room.jpg'));
+  await page.getByText('Your room photo is ready.',{exact:false}).waitFor();
+  checks.push('Actual sample JPEG upload decoded and persisted');
+  await page.locator('#budget').fill('400');
+  await page.getByLabel('Add a keep constraint',{exact:true}).fill('existing lamp');
+  await page.getByRole('button',{name:'Add keep constraint',exact:true}).click();
+  await page.getByRole('combobox',{name:'Product source'}).selectOption('catalog');
+  await page.getByRole('button',{name:'Find the pieces'}).click();
+  await page.locator('.product-row').first().waitFor();
+  const roomId=await page.evaluate(()=>localStorage.getItem('showroom.room'));
+  const current=await page.request.get(base+'/api/rooms/'+roomId).then(response=>response.json());
+  assert.equal(current.budget,400);
+  assert(current.keep.includes('existing lamp'));
+  assert(current.products.every(product=>!['sofa','lighting'].includes(product.category)));
+  assert.equal(current.total,current.products.reduce((sum,product)=>sum+Math.round(product.price*100),0)/100);
+  assert(current.total<=current.budget);
+  assert.equal(current.graph.status,'connected','Run the supplied Neo4j service before this full smoke test');
+  checks.push('Budget/keep constraints and cents-based total from actual Neo4j recommendations');
+  const firstProducts=await page.locator('.product-row h3').allTextContents();
+  await page.getByRole('button',{name:'Save design brief',exact:true}).click();
+  await page.getByRole('dialog',{name:'One last look.'}).waitFor();
+  await page.screenshot({path:path.join(evidence,'verification-desktop-review.png'),fullPage:true});
+  await page.getByRole('button',{name:'Close save review'}).click();
+  checks.push('Exact design/shopping review opens after retrieval; canceled without approval');
+  await page.reload();
+  await page.getByRole('button',{name:'View the pieces'}).click();
+  assert.deepEqual(await page.locator('.product-row h3').allTextContents(),firstProducts);
+  assert.equal(await page.locator('#budget').inputValue(),'400');
+  await page.getByRole('button',{name:'Save design brief',exact:true}).click();
+  await page.getByRole('dialog',{name:'One last look.'}).waitFor();
+  await page.getByRole('button',{name:'Close save review'}).click();
+  checks.push('Reload preserves budget, selected products and reviewability');
+  if(!health.integrations.reactor.configured){
+   await page.getByRole('button',{name:'Start Orbis',exact:true}).click();
+   await page.getByRole('alert').filter({hasText:'REACTOR_API_KEY'}).waitFor();
+   assert.equal(await page.locator('.direction-history .accepted').count(),0);
+   checks.push('Missing Reactor credential displays recoverable error and no false live acknowledgment');
+  }else checks.push('Reactor failure test skipped: credential configured; no paid session started by smoke test');
+  if(!health.integrations.ambiguous.configured){
+   await page.getByRole('button',{name:'My workspace',exact:true}).click();
+   await page.getByText('Ambiguous access is not configured.',{exact:false}).waitFor();
+   await page.getByRole('button',{name:'Close connections'}).click();
+   checks.push('Missing Ambiguous credential displays recoverable workspace error');
+  }else checks.push('Ambiguous failure test skipped: credential configured; no external read/write required');
+  const desktopOverflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
+  await page.screenshot({path:path.join(evidence,'verification-desktop.png'),fullPage:true});
+  await page.setViewportSize({width:391,height:844});
+  const mobileOverflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
+  await page.screenshot({path:path.join(evidence,'verification-mobile.png'),fullPage:true});
+  await page.getByRole('button',{name:'Save design brief',exact:true}).click();
+  await page.getByRole('dialog',{name:'One last look.'}).waitFor();
+  await page.getByRole('button',{name:'Close save review'}).click();
+  assert.equal(desktopOverflow,false);assert.equal(mobileOverflow,false);assert.deepEqual(errors,[]);
+  checks.push('Desktop1280 and mobile391: no horizontal overflow, accessible save action, no uncaught browser errors');
+  const result={checked_at:new Date().toISOString(),base,roomId,viewportDesktop:'1280x900',viewportMobile:'391x844',desktopOverflow,mobileOverflow,products:firstProducts,total:current.total,graph:current.graph.status,checks,pageErrors:errors,externalWrites:0,liveStreamVerified:false};
+  fs.writeFileSync(path.join(evidence,'browser-verification.json'),JSON.stringify(result,null,2)+'\n');
+  console.log(JSON.stringify(result,null,2));
+ }finally{await browser.close();}
+})().catch(error=>{console.error(error);process.exitCode=1;});

@@ -1,0 +1,23 @@
+{
+  "suggested_name": "showroom-coworker",
+  "description": "A room design coworker that connects visual decisions, a sourced shopping list, and approved Ambiguous workspace handoffs.",
+  "topics": [
+    "ambiguous",
+    "ai-coworker",
+    "interior-design",
+    "human-in-the-loop",
+    "fastapi",
+    "react"
+  ],
+  "presentation_focus": "Agents Everywhere: context and approved work handoff",
+  "disclosure": "One SHOWROOM codebase, presented with an Ambiguous coworker-focused README. See the canonical project and other variants in the documentation.",
+  "repository_url": "https://github.com/KaushikSiva/showroom-coworker",
+  "canonical_repository_url": "https://github.com/KaushikSiva/showroom",
+  "related_repositories": {
+    "live-video": "https://github.com/KaushikSiva/showroom",
+    "ambiguous-coworker": "https://github.com/KaushikSiva/showroom-coworker",
+    "qoder-neo4j": "https://github.com/KaushikSiva/showroom-graph"
+  },
+  "publication_status": "published public GitHub repository",
+  "published_at": "2026-09-12T20:22:49.989056+00:00"
+}

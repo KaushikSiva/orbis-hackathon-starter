@@ -1,0 +1,94 @@
+{
+  "checked_at": "2026-09-12T19:32:19.098654+00:00",
+  "environment": "Actual local FastAPI HTTP requests and Docker Neo4j 5.26; no provider mocks",
+  "health": {
+    "status": "ok",
+    "integrations": {
+      "reactor": {
+        "configured": false,
+        "status": "missing_key"
+      },
+      "ambiguous": {
+        "configured": false,
+        "status": "missing_key"
+      },
+      "neo4j": {
+        "configured": true,
+        "status": "connected"
+      }
+    },
+    "catalog": {
+      "count": 4,
+      "price_checked_at": "2026-09-12",
+      "mode": "curated merchant snapshot"
+    }
+  },
+  "same_room_id": "ea44b66c-bfbd-4013-978d-ecb56d959534",
+  "comparison": [
+    {
+      "preference": "natural",
+      "budget": 150,
+      "keep": [
+        "existing sofa"
+      ],
+      "total": 129.99,
+      "products": [
+        {
+          "name": "LOHALS flatwoven rug",
+          "matched_styles": [
+            "natural"
+          ],
+          "price": 129.99,
+          "image_url": "https://www.ikea.com/us/en/images/products/lohals-rug-flatwoven-natural__0893155_pe583381_s5.jpg?f=l"
+        }
+      ],
+      "graph": {
+        "status": "connected",
+        "explanation": "Neo4j ranks Product \u2192 HAS_STYLE \u2192 Style \u2190 PREFERS \u2190 Room paths, then respects the remaining budget and keep constraints.",
+        "matched_tags": [
+          "natural"
+        ],
+        "excluded_categories": [
+          "sofa"
+        ],
+        "relationship_count": 1
+      }
+    },
+    {
+      "preference": "minimal",
+      "budget": 150,
+      "keep": [
+        "existing sofa"
+      ],
+      "total": 89.98,
+      "products": [
+        {
+          "name": "LACK coffee table",
+          "matched_styles": [
+            "minimal"
+          ],
+          "price": 29.99,
+          "image_url": "https://image-ikea.mncdn.com/urunler/2000_2000/PE746803.jpg"
+        },
+        {
+          "name": "RANARP work lamp",
+          "matched_styles": [],
+          "price": 59.99,
+          "image_url": "https://www.ikea.com/pt/pt/images/products/ranarp-candeeiro-de-secretaria-branco-bege__0610455_pe685514_s5.jpg?f=l"
+        }
+      ],
+      "graph": {
+        "status": "connected",
+        "explanation": "Neo4j ranks Product \u2192 HAS_STYLE \u2192 Style \u2190 PREFERS \u2190 Room paths, then respects the remaining budget and keep constraints.",
+        "matched_tags": [
+          "minimal"
+        ],
+        "excluded_categories": [
+          "sofa"
+        ],
+        "relationship_count": 1
+      }
+    }
+  ],
+  "contract_tests": "9 passed; mocked upstream tests are not live provider evidence"
+}

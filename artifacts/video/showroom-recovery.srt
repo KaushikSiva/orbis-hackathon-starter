@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:08,000
+SHOWROOM — a room you can make your own.
+
+2
+00:00:08,000 --> 00:00:18,000
+Upload a room photograph. This demo uses the labeled sample room.
+
+3
+00:00:18,000 --> 00:00:28,000
+A $900 furniture budget. Keep the sofa, layout, windows and artwork.
+
+4
+00:00:28,000 --> 00:00:45,000
+Orbis is unavailable. The connection error offers a retry.
+
+5
+00:00:45,000 --> 00:01:00,000
+Check connection status: Orbis, Neo4j and Ambiguous.
+
+6
+00:01:00,000 --> 00:01:14,000
+Start a live session to send design instructions.
+
+7
+00:01:14,000 --> 00:01:27,000
+Review sourced products, dimensions and the calculated subtotal.
+
+8
+00:01:27,000 --> 00:01:42,000
+Review the brief and shopping list before saving.
+
+9
+00:01:42,000 --> 00:01:54,000
+The write failed. The service error remains visible for retry.
+
+10
+00:01:54,000 --> 00:02:00,000
+SHOWROOM — from a room photo to a practical design brief.

@@ -1,0 +1,296 @@
+{
+  "verified_at": "2026-09-12T22:05:08.651520+00:00",
+  "providers": "actual OpenAI + Exa; same frame from prior actual Orbis recording",
+  "room_id": "87bb9681-5c98-4d0a-be59-b845ca2b25d5",
+  "runs": [
+    {
+      "run": "first_request",
+      "http_ms": 14829.02,
+      "performance": {
+        "vision": {
+          "cache": {
+            "status": "miss",
+            "age_seconds": 0,
+            "ttl_seconds": 600
+          },
+          "elapsed_ms": 2276.3
+        },
+        "search": {
+          "cache": {
+            "status": "miss",
+            "age_seconds": 0,
+            "ttl_seconds": 900
+          },
+          "elapsed_ms": 12322.24,
+          "result_limit": 4,
+          "page_max_age_hours": 6
+        },
+        "graph_ms": 226.04,
+        "total_ms": 14826.07
+      },
+      "selection": {
+        "label": "coffee table",
+        "query": "light brown beige wood round coffee table",
+        "item_type": "coffee table",
+        "material": "wood",
+        "shape": "round",
+        "colors": [
+          "light brown",
+          "beige"
+        ],
+        "brand": null,
+        "brand_evidence": null,
+        "brand_status": "unknown",
+        "provider": "openai",
+        "model": "gpt-4.1-mini",
+        "match_type": "visually_similar"
+      },
+      "products": [
+        {
+          "id": "amazon-B09BR3JW5B",
+          "name": "Allora Mid-Century Round Wood Coffee Table in Natural Brown",
+          "brand": "Amazon listing",
+          "category": "table",
+          "price": null,
+          "currency": "USD",
+          "image_url": null,
+          "source_url": "https://www.amazon.com/dp/B09BR3JW5B",
+          "dimensions": "16\"H x 30\"W x 30\"D",
+          "price_status": "unavailable",
+          "price_quote": null,
+          "retrieved_at": "2026-09-12T22:05:08.376844+00:00",
+          "source": "exa_amazon",
+          "tags": [
+            "natural"
+          ],
+          "score": 1,
+          "matched_styles": [
+            "natural"
+          ],
+          "selected": true,
+          "reason": "Price unavailable; check the Amazon listing before budgeting. Matches natural through Neo4j style relationships.",
+          "visual_match": {
+            "attribute_score": 6,
+            "matched_attributes": [
+              "item: coffee table",
+              "material: wood",
+              "shape: round"
+            ]
+          }
+        },
+        {
+          "id": "amazon-B0B6L8LYMP",
+          "name": "30 Inch Wooden Round Coffee Table with Grain Details Walnut Brown Modern Contemporary Acacia Natural Finish",
+          "brand": "Amazon listing",
+          "category": "table",
+          "price": null,
+          "currency": "USD",
+          "image_url": null,
+          "source_url": "https://www.amazon.com/dp/B0B6L8LYMP",
+          "dimensions": "Product Size: 30.0 In. L X 30.0 In. W X 12.0 In. H",
+          "price_status": "unavailable",
+          "price_quote": null,
+          "retrieved_at": "2026-09-12T22:05:08.378097+00:00",
+          "source": "exa_amazon",
+          "tags": [
+            "natural"
+          ],
+          "score": 1,
+          "matched_styles": [
+            "natural"
+          ],
+          "selected": true,
+          "reason": "Price unavailable; check the Amazon listing before budgeting. Matches natural through Neo4j style relationships.",
+          "visual_match": {
+            "attribute_score": 6,
+            "matched_attributes": [
+              "item: coffee table",
+              "material: wood",
+              "shape: round"
+            ]
+          }
+        },
+        {
+          "id": "amazon-B0FJ2FSRNC",
+          "name": "ZenithX 31.4'' Modern Minimalist Circular Coffee Table - Natural Wood Texture, Stable Durable Design for Living Room, Study, Office",
+          "brand": "Amazon listing",
+          "category": "table",
+          "price": null,
+          "currency": "USD",
+          "image_url": null,
+          "source_url": "https://www.amazon.com/dp/B0FJ2FSRNC",
+          "dimensions": "31.4''",
+          "price_status": "unavailable",
+          "price_quote": null,
+          "retrieved_at": "2026-09-12T22:05:08.378496+00:00",
+          "source": "exa_amazon",
+          "tags": [
+            "minimal",
+            "natural",
+            "texture"
+          ],
+          "score": 3,
+          "matched_styles": [
+            "texture",
+            "natural",
+            "minimal"
+          ],
+          "selected": true,
+          "reason": "Price unavailable; check the Amazon listing before budgeting. Matches texture, natural, minimal through Neo4j style relationships.",
+          "visual_match": {
+            "attribute_score": 5,
+            "matched_attributes": [
+              "item: coffee table",
+              "material: wood"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "run": "repeated_request",
+      "http_ms": 44.54,
+      "performance": {
+        "vision": {
+          "cache": {
+            "status": "hit",
+            "age_seconds": 12.562,
+            "ttl_seconds": 600
+          },
+          "elapsed_ms": 6.16
+        },
+        "search": {
+          "cache": {
+            "status": "hit",
+            "age_seconds": 0.24,
+            "ttl_seconds": 900
+          },
+          "elapsed_ms": 0.06,
+          "result_limit": 4,
+          "page_max_age_hours": 6
+        },
+        "graph_ms": 31.82,
+        "total_ms": 39.24
+      },
+      "selection": {
+        "label": "coffee table",
+        "query": "light brown beige wood round coffee table",
+        "item_type": "coffee table",
+        "material": "wood",
+        "shape": "round",
+        "colors": [
+          "light brown",
+          "beige"
+        ],
+        "brand": null,
+        "brand_evidence": null,
+        "brand_status": "unknown",
+        "provider": "openai",
+        "model": "gpt-4.1-mini",
+        "match_type": "visually_similar"
+      },
+      "products": [
+        {
+          "id": "amazon-B09BR3JW5B",
+          "name": "Allora Mid-Century Round Wood Coffee Table in Natural Brown",
+          "brand": "Amazon listing",
+          "category": "table",
+          "price": null,
+          "currency": "USD",
+          "image_url": null,
+          "source_url": "https://www.amazon.com/dp/B09BR3JW5B",
+          "dimensions": "16\"H x 30\"W x 30\"D",
+          "price_status": "unavailable",
+          "price_quote": null,
+          "retrieved_at": "2026-09-12T22:05:08.376844+00:00",
+          "source": "exa_amazon",
+          "tags": [
+            "natural"
+          ],
+          "score": 1,
+          "matched_styles": [
+            "natural"
+          ],
+          "selected": true,
+          "reason": "Price unavailable; check the Amazon listing before budgeting. Matches natural through Neo4j style relationships.",
+          "visual_match": {
+            "attribute_score": 6,
+            "matched_attributes": [
+              "item: coffee table",
+              "material: wood",
+              "shape: round"
+            ]
+          }
+        },
+        {
+          "id": "amazon-B0B6L8LYMP",
+          "name": "30 Inch Wooden Round Coffee Table with Grain Details Walnut Brown Modern Contemporary Acacia Natural Finish",
+          "brand": "Amazon listing",
+          "category": "table",
+          "price": null,
+          "currency": "USD",
+          "image_url": null,
+          "source_url": "https://www.amazon.com/dp/B0B6L8LYMP",
+          "dimensions": "Product Size: 30.0 In. L X 30.0 In. W X 12.0 In. H",
+          "price_status": "unavailable",
+          "price_quote": null,
+          "retrieved_at": "2026-09-12T22:05:08.378097+00:00",
+          "source": "exa_amazon",
+          "tags": [
+            "natural"
+          ],
+          "score": 1,
+          "matched_styles": [
+            "natural"
+          ],
+          "selected": true,
+          "reason": "Price unavailable; check the Amazon listing before budgeting. Matches natural through Neo4j style relationships.",
+          "visual_match": {
+            "attribute_score": 6,
+            "matched_attributes": [
+              "item: coffee table",
+              "material: wood",
+              "shape: round"
+            ]
+          }
+        },
+        {
+          "id": "amazon-B0FJ2FSRNC",
+          "name": "ZenithX 31.4'' Modern Minimalist Circular Coffee Table - Natural Wood Texture, Stable Durable Design for Living Room, Study, Office",
+          "brand": "Amazon listing",
+          "category": "table",
+          "price": null,
+          "currency": "USD",
+          "image_url": null,
+          "source_url": "https://www.amazon.com/dp/B0FJ2FSRNC",
+          "dimensions": "31.4''",
+          "price_status": "unavailable",
+          "price_quote": null,
+          "retrieved_at": "2026-09-12T22:05:08.378496+00:00",
+          "source": "exa_amazon",
+          "tags": [
+            "minimal",
+            "natural",
+            "texture"
+          ],
+          "score": 3,
+          "matched_styles": [
+            "texture",
+            "natural",
+            "minimal"
+          ],
+          "selected": true,
+          "reason": "Price unavailable; check the Amazon listing before budgeting. Matches texture, natural, minimal through Neo4j style relationships.",
+          "visual_match": {
+            "attribute_score": 5,
+            "matched_attributes": [
+              "item: coffee table",
+              "material: wood"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "external_document_writes": 0
+}

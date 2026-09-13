@@ -1,0 +1,33 @@
+{
+  "verified_at": "2026-09-12T22:25:29.656Z",
+  "pdf_pages": 5,
+  "video": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1600,
+        "height": 900,
+        "pix_fmt": "yuv420p",
+        "side_data_list": [
+          {}
+        ]
+      }
+    ],
+    "format": {
+      "duration": "120.000000",
+      "size": "11434552"
+    }
+  },
+  "full_video_decoded": true,
+  "required_files": [
+    "artifacts/video/showroom-demo.srt",
+    "artifacts/video/poster.jpg",
+    "artifacts/screenshots/desktop.png",
+    "artifacts/screenshots/mobile.png",
+    "artifacts/screenshots/shopping.png",
+    "docs/deck/showroom-deck.html",
+    "docs/architecture.svg"
+  ]
+}

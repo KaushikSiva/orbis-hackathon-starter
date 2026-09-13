@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "providers": "mocked; synthetic video explicitly labeled",
+  "checks": [
+    "automatic recording from decoded frames",
+    "finite duration metadata",
+    "timeline seek and rewind",
+    "downloaded playable WebM",
+    "IndexedDB reload recovery",
+    "click saved frame to Amazon match",
+    "visual API failure and retry",
+    "mobile fullscreen timeline",
+    "contain/cover coordinates and letterbox rejection"
+  ],
+  "searches": 3
+}

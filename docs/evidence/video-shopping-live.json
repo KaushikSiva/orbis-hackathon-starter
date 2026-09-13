@@ -1,0 +1,168 @@
+{
+  "verified_at": "2026-09-12T21:50:07.248Z",
+  "providers": [
+    "actual Orbis stream",
+    "actual OpenAI vision",
+    "actual Exa search"
+  ],
+  "room_id": "b4ed1efd-b0b3-4865-a36f-fb8b615460c8",
+  "recording": {
+    "duration": 10.071699,
+    "width": 1280,
+    "height": 720,
+    "seek": 3
+  },
+  "selection": {
+    "label": "round wooden coffee table",
+    "query": "round wooden coffee table light brown modern",
+    "provider": "openai",
+    "model": "gpt-4.1-mini",
+    "match_type": "visually_similar"
+  },
+  "products": [
+    {
+      "id": "amazon-B0G25HQL41",
+      "name": "31.5\" Round Fluted Wood Coffee Table with Flip-Top Hidden Storage, Rustic Accent Table with Open Storage and Roman Column Legs for Living Room, Apartment, Farmhouse Circle Sofa Table, Walnut Brown",
+      "brand": "Amazon listing",
+      "category": "table",
+      "price": 175.89,
+      "currency": "USD",
+      "image_url": null,
+      "source_url": "https://www.amazon.com/dp/B0G25HQL41",
+      "dimensions": "31.5\"D x 31.5\"W x 21.25\"H",
+      "price_status": "source_quote",
+      "price_quote": "$175.89",
+      "retrieved_at": "2026-09-12T21:50:06.566970+00:00",
+      "source": "exa_amazon",
+      "tags": [],
+      "score": 0,
+      "matched_styles": [],
+      "selected": true,
+      "reason": "Fits the available budget and does not replace a kept item."
+    },
+    {
+      "id": "amazon-B0FJ6GQ4HZ",
+      "name": "40inch 2 Tier Traditional Round Circle Wooden Center Coffee Table,Rounded Table with Wheels,Mid Century Rustic Style Table for Living Room,Office,Apartment (Dark Brown)",
+      "brand": "Amazon listing",
+      "category": "table",
+      "price": 272.99,
+      "currency": "USD",
+      "image_url": null,
+      "source_url": "https://www.amazon.com/dp/B0FJ6GQ4HZ",
+      "dimensions": "40\"D x 40\"W x 17.5\"H",
+      "price_status": "source_quote",
+      "price_quote": "$272.99",
+      "retrieved_at": "2026-09-12T21:50:06.568081+00:00",
+      "source": "exa_amazon",
+      "tags": [],
+      "score": 0,
+      "matched_styles": [],
+      "selected": true,
+      "reason": "Fits the available budget and does not replace a kept item."
+    },
+    {
+      "id": "amazon-B0FGDH1Y5Z",
+      "name": "38'' Drum Coffee Table - Round Wooden Coffee Table Farmhouse Retro Wood Round Cocktail Table Creative Rustic Center Table for Living Room (Brown)",
+      "brand": "Amazon listing",
+      "category": "table",
+      "price": 349.99,
+      "currency": "USD",
+      "image_url": null,
+      "source_url": "https://www.amazon.com/dp/B0FGDH1Y5Z",
+      "dimensions": "31.49\"D x 38.18\"W x 16.33\"H",
+      "price_status": "source_quote",
+      "price_quote": "$349.99",
+      "retrieved_at": "2026-09-12T21:50:06.567846+00:00",
+      "source": "exa_amazon",
+      "tags": [],
+      "score": 0,
+      "matched_styles": [],
+      "selected": true,
+      "reason": "Fits the available budget and does not replace a kept item."
+    },
+    {
+      "id": "amazon-B0C6TW15BN",
+      "name": "TEXAS LINEN CO. Handmade Mango Wood Coffee Table - Round Drum Coffee Table for Serving and Decor - Natural Brown Finish - 35\" D x 35\" W x 12\" H Inches",
+      "brand": "Amazon listing",
+      "category": "table",
+      "price": null,
+      "currency": "USD",
+      "image_url": null,
+      "source_url": "https://www.amazon.com/dp/B0C6TW15BN",
+      "dimensions": "35\" D x 35\" W x 12\" H",
+      "price_status": "unavailable",
+      "price_quote": null,
+      "retrieved_at": "2026-09-12T21:50:06.567453+00:00",
+      "source": "exa_amazon",
+      "tags": [
+        "natural"
+      ],
+      "score": 1,
+      "matched_styles": [
+        "natural"
+      ],
+      "selected": true,
+      "reason": "Price unavailable; check the Amazon listing before budgeting. Matches natural through Neo4j style relationships."
+    },
+    {
+      "id": "amazon-B0G4CKGVDD",
+      "name": "24\" +17.6\" Round Circle Wooden Coffee Table Set,Multi-Functional 2-in-1 Side Table,Modern Minimalist Style Center Table for Apartment,Living Room,Office,Light Brown",
+      "brand": "Amazon listing",
+      "category": "table",
+      "price": null,
+      "currency": "USD",
+      "image_url": null,
+      "source_url": "https://www.amazon.com/dp/B0G4CKGVDD",
+      "dimensions": "Not provided by source",
+      "price_status": "unavailable",
+      "price_quote": null,
+      "retrieved_at": "2026-09-12T21:50:06.567309+00:00",
+      "source": "exa_amazon",
+      "tags": [
+        "minimal"
+      ],
+      "score": 1,
+      "matched_styles": [
+        "minimal"
+      ],
+      "selected": true,
+      "reason": "Price unavailable; check the Amazon listing before budgeting. Matches minimal through Neo4j style relationships."
+    },
+    {
+      "id": "amazon-B0885YPFYX",
+      "name": "WELLAND Square Old Elm Coffee Table with Metal Stand,Diamond Shape Pattern",
+      "brand": "Amazon listing",
+      "category": "table",
+      "price": null,
+      "currency": "USD",
+      "image_url": null,
+      "source_url": "https://www.amazon.com/dp/B0885YPFYX",
+      "dimensions": "27 x 27 x 16 inches",
+      "price_status": "unavailable",
+      "price_quote": null,
+      "retrieved_at": "2026-09-12T21:50:06.567728+00:00",
+      "source": "exa_amazon",
+      "tags": [],
+      "score": 0,
+      "matched_styles": [],
+      "selected": true,
+      "reason": "Price unavailable; check the Amazon listing before budgeting. Does not replace a kept item."
+    }
+  ],
+  "graph": {
+    "status": "connected",
+    "explanation": "Neo4j ranks Product → HAS_STYLE → Style ← PREFERS ← Room paths, then respects the remaining budget and keep constraints.",
+    "matched_tags": [
+      "minimal",
+      "natural",
+      "texture",
+      "warm"
+    ],
+    "excluded_categories": [
+      "sofa"
+    ],
+    "relationship_count": 2
+  },
+  "page_errors": [],
+  "external_document_writes": 0
+}

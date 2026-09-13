@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:08,000
+Start with a room photograph. This is the original uploaded reference.
+
+2
+00:00:08,000 --> 00:00:18,000
+The same room is now streaming through Orbis.
+
+3
+00:00:18,000 --> 00:00:43,000
+First direction: a deep olive feature wall. Keep the sofa and layout.
+
+4
+00:00:43,000 --> 00:01:12,000
+Second direction: a cobalt rug and warm evening light.
+
+5
+00:01:12,000 --> 00:01:27,000
+Review sourced furniture, dimensions and the calculated subtotal.
+
+6
+00:01:27,000 --> 00:01:40,000
+Review the design brief and shopping list before saving.
+
+7
+00:01:40,000 --> 00:01:47,446
+Approve the exact brief and $219.97 shopping list.
+
+8
+00:01:47,446 --> 00:02:00,000
+Saved to Ambiguous. Document content verified by read-back.

@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-09-12T19:55:16.729Z",
+  "surface": "production Vite preview5191",
+  "javascript": {
+    "status": 200,
+    "mime": "text/javascript"
+  },
+  "binary": {
+    "status": 200,
+    "mime": "application/wasm",
+    "bytes": 651458
+  },
+  "initialized": true,
+  "reactorClientExport": "function",
+  "pageErrors": [],
+  "providerCalls": 0,
+  "liveStreamVerified": false
+}

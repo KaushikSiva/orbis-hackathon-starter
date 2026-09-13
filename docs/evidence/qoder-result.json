@@ -1,0 +1,12 @@
+{
+  "qoder_version": "1.1.51",
+  "qoder_exit_code": 0,
+  "created_file": "backend/test_qoder_journey.py",
+  "sha256": "f37d3834e57477e13bd65d1048e7a99abdd011356398ae819793fa6cb3b1b5ad",
+  "independent_review": "File-only diff reviewed; imports isolated local fixture, prevents external provider/Neo4j network, covers two successive instructions, constraints, source prices, export guards and temporary database isolation.",
+  "focused_test_command": ".venv/bin/python -m pytest backend/test_qoder_journey.py -q",
+  "focused_result": "5 passed, 2 upstream deprecation warnings",
+  "full_test_command": ".venv/bin/python -m pytest backend -q",
+  "full_result": "18 passed, 2 upstream deprecation warnings",
+  "mock_disclosure": "Provider and offline graph fixtures are contract tests, not actual integration evidence."
+}

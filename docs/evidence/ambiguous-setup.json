@@ -1,0 +1,11 @@
+{
+  "checked_at": "2026-09-12T19:53:46.365248+00:00",
+  "method": "official npx ambiguous auth signup CLI",
+  "workspace_name": "SHOWROOM Studio",
+  "agent_name": "SHOWROOM Design Coworker",
+  "api_key_storage": ".env (0600), ignored local .ambi/config.json (0600)",
+  "documents_http_status": 200,
+  "documents_count": 0,
+  "external_document_writes": 0,
+  "ownership_verification_email": "Automatically sent by required CLI signup; owner verification may be needed for invites and billing."
+}

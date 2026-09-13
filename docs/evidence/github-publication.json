@@ -1,0 +1,58 @@
+{
+  "verified_at": "2026-09-12T20:22:49.989056+00:00",
+  "authorization": "Participant approved these three public GitHub repositories; event/social submissions and Ambiguous writes remain separate.",
+  "canonical_repository_url": "https://github.com/KaushikSiva/showroom",
+  "same_codebase": true,
+  "repositories": [
+    {
+      "presentation": "live-video",
+      "repository_url": "https://github.com/KaushikSiva/showroom",
+      "visibility": "public",
+      "branch": "main",
+      "first_public_commit": "f25fc953f564a27960915d692d55727d565fc24f",
+      "verified_remote_ref": "f25fc953f564a27960915d692d55727d565fc24f"
+    },
+    {
+      "presentation": "ambiguous-coworker",
+      "repository_url": "https://github.com/KaushikSiva/showroom-coworker",
+      "visibility": "public",
+      "branch": "main",
+      "first_public_commit": "0932e6f0527d8bf8ad58fe3052e37c515b35c182",
+      "verified_remote_ref": "0932e6f0527d8bf8ad58fe3052e37c515b35c182"
+    },
+    {
+      "presentation": "qoder-neo4j",
+      "repository_url": "https://github.com/KaushikSiva/showroom-graph",
+      "visibility": "public",
+      "branch": "main",
+      "first_public_commit": "72e74cab82f46527631b79412a6277ff0f4c225c",
+      "verified_remote_ref": "72e74cab82f46527631b79412a6277ff0f4c225c"
+    }
+  ],
+  "verification": {
+    "exact_staged_private_credential_values_scanned": 4,
+    "credential_matches": 0,
+    "private_runtime_or_dependency_paths_staged": 0,
+    "staged_symlinks": 0,
+    "files_above_95_MB": 0,
+    "manifest_matches_actual_staged_source_files": true
+  },
+  "notes": [
+    "First public commits are immutable publication evidence; later documentation updates may advance main.",
+    "One canonical local monorepo supplies three separate presentation checkouts under ignored publication/_git.",
+    "README differs by presentation; public source, artifacts and QUICKSTART share canonical bytes.",
+    "Generated Reactor runtime and TypeScript build metadata are excluded consistently and regenerated during startup/build.",
+    "No force push, event submission or social post occurred. The original publication made no Ambiguous write; the later separately approved save is documented in approved-save.json."
+  ],
+  "record_type": "Historical first-publication verification, with a later approved-save update",
+  "first_publication_source_sha256": "67a90ac54ff9415cb7e82f58012e8564e7133422cfcbf2f8d83bee19451bd41c",
+  "first_publication_source_file_count": 24,
+  "approved_save_update": {
+    "source_sha256": "149c2c96f5bd049834eaa72ae98210ce3175bbb5453057c806d63167156898b8",
+    "source_file_count": 25,
+    "save_evidence": "approved-save.json",
+    "media_evidence": "artifact-verification.json",
+    "backend_test_result": "23 passed",
+    "authorization": "The participant separately approved the exact Ambiguous brief; existing GitHub publication authorization covers this repository update."
+  }
+}

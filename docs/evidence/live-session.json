@@ -1,0 +1,132 @@
+{
+  "record_type": "Historical verification of a completed real Orbis session",
+  "archived_at": "2026-09-12T20:04:20.257819+00:00",
+  "session_status": "Ended intentionally after successful capture; no session is currently being asserted live.",
+  "live_stream_verified": true,
+  "model": "reactor/visko-orbis-dynamic",
+  "room_id": "d32e33ae-bfb6-446f-9d9e-1afb727a4416",
+  "provider_session_id": "Not captured; room_id is an application identifier, not a provider session identifier.",
+  "browser_frame_presented_events": [
+    {
+      "type": "browser_frame_presented",
+      "at": "2026-09-12T19:45:04.046Z",
+      "width": 2560,
+      "height": 1440
+    }
+  ],
+  "historical_browser_observations": [
+    {
+      "source": "Original controller console STATUS 4, preserved in ignored /tmp/showroom-live-session.log",
+      "width": 2560,
+      "height": 1440,
+      "readyState": 4,
+      "currentTime": 1.601,
+      "decoded_frames": 29
+    },
+    {
+      "source": "Independent root-agent read-only CDP observation; image copied with original modification time",
+      "captured_at": "2026-09-12T19:45:26.995127+00:00",
+      "screenshot": "docs/evidence/independent-live-review.png",
+      "width": 2560,
+      "height": 1440,
+      "readyState": 4,
+      "currentTime": 22.45,
+      "decoded_frames": 395,
+      "srcObject_present": true
+    },
+    {
+      "source": "Frontend agent read-only CDP observation taken with live-change-2.png",
+      "screenshot_captured_at": "2026-09-12T19:46:39.318824+00:00",
+      "screenshot": "artifacts/screenshots/live-change-2.png",
+      "width": 2560,
+      "height": 1440,
+      "decoded_frames": 1681
+    },
+    {
+      "source": "Original controller console STATUS 34, preserved in ignored /tmp/showroom-live-session.log",
+      "width": 2560,
+      "height": 1440,
+      "readyState": 4,
+      "currentTime": 301.655,
+      "decoded_frames": 5338
+    }
+  ],
+  "prompt_accepted_events": [
+    {
+      "type": "prompt_accepted",
+      "at": "2026-09-12T19:44:57.579Z"
+    },
+    {
+      "type": "prompt_accepted",
+      "at": "2026-09-12T19:45:32.671Z"
+    },
+    {
+      "type": "prompt_accepted",
+      "at": "2026-09-12T19:45:58.335Z"
+    },
+    {
+      "type": "prompt_accepted",
+      "at": "2026-09-12T19:49:10.877Z"
+    },
+    {
+      "type": "prompt_accepted",
+      "at": "2026-09-12T19:49:36.526Z"
+    }
+  ],
+  "final_visible_changes": [
+    {
+      "instruction": "Paint the large back wall a rich deep olive green. Keep the existing sofa, windows, furniture positions and camera view unchanged.",
+      "application_directive_id": "6125e7b5-c8a4-4560-8486-d2b79161ceb8",
+      "application_status": "accepted",
+      "provider_ack_at": "2026-09-12T19:49:10.877Z",
+      "screenshot": "artifacts/screenshots/live-change-1-final.png",
+      "visual_assessment": "Deep olive green wall visibly rendered; reviewed independently by frontend and root/packaging agents."
+    },
+    {
+      "instruction": "Change the large floor rug to a rich cobalt blue. Keep the olive wall, existing sofa and layout. Add warm amber evening light.",
+      "application_directive_id": "4245b3ef-d6c5-4842-996a-3c725a0594c8",
+      "application_status": "accepted",
+      "provider_ack_at": "2026-09-12T19:49:36.526Z",
+      "screenshot": "artifacts/screenshots/live-change-2-final.png",
+      "visual_assessment": "Vivid cobalt blue rug and glowing amber lamp visibly rendered; reviewed independently by frontend and root/packaging agents."
+    }
+  ],
+  "constraints_after_steering": {
+    "budget": 900.0,
+    "keep": [
+      "existing sofa",
+      "windows & layout"
+    ],
+    "preferences": [
+      "Warm minimal",
+      "Natural textures"
+    ],
+    "shopping_total": 219.97
+  },
+  "chunk_evidence": {
+    "nonempty_chunk_count": 244,
+    "first_nonempty_chunk": {
+      "type": "chunk_complete",
+      "at": "2026-09-12T19:45:03.419Z",
+      "frames_emitted": 33,
+      "delivered": "2560x1440"
+    },
+    "last_nonempty_chunk": {
+      "type": "chunk_complete",
+      "at": "2026-09-12T19:52:28.920Z",
+      "frames_emitted": 33,
+      "delivered": "2560x1440"
+    }
+  },
+  "limitations": [
+    "These are historical observations, not a current stream-health report.",
+    "Generated room geometry and furniture appearance drifted during the session. Budget and keep constraints were retained in application/graph state; visual fidelity is not guaranteed.",
+    "The local browser reports acknowledgments; this is not cryptographically attested provider evidence.",
+    "No recording or fixture was presented as a live stream."
+  ],
+  "related_evidence": [
+    "docs/evidence/live-capture.json",
+    "artifacts/video/showroom-demo.mp4"
+  ],
+  "runtime_status_location": "backend/data/runtime/live-session-status.json (ignored; not publication evidence)"
+}

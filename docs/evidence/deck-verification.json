@@ -1,0 +1,14 @@
+{
+  "verified_at": "2026-09-12T22:25:59.413687+00:00",
+  "pages": 5,
+  "sequence": [
+    "hero image and SHOWROOM title only",
+    "problem / why",
+    "demo video placeholder",
+    "Ambiguous, OpenAI, Exa, Neo4j, Qoder, VISKO architecture",
+    "deployed Render QR code"
+  ],
+  "qr_decoded_from_rendered_slide": "https://showroom-q4s4.onrender.com",
+  "all_pages_visually_reviewed": true,
+  "demo_placeholder_links_to_existing_mp4": true
+}

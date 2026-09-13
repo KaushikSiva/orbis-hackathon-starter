@@ -1,0 +1,46 @@
+{
+  "verified_at": "2026-09-12T21:09:14.263Z",
+  "provider": "actual Orbis SDK session",
+  "room_id": "e023c2a9-9b44-44ed-b3ec-4d84d2f529a1",
+  "fullscreen": true,
+  "frame_held_for_ms": 2200,
+  "paused_direction_accepted": true,
+  "resumed": true,
+  "events": [
+    {
+      "type": "prompt_accepted",
+      "at": "2026-09-12T21:09:00.855Z"
+    },
+    {
+      "type": "browser_frame_presented",
+      "at": "2026-09-12T21:09:07.013Z",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "type": "generation_paused",
+      "at": "2026-09-12T21:09:08.499Z"
+    },
+    {
+      "type": "prompt_accepted",
+      "at": "2026-09-12T21:09:11.445Z"
+    },
+    {
+      "type": "generation_resumed",
+      "at": "2026-09-12T21:09:11.847Z"
+    },
+    {
+      "type": "browser_frame_presented",
+      "at": "2026-09-12T21:09:14.230Z",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "type": "browser_frame_presented",
+      "at": "2026-09-12T21:09:14.230Z",
+      "width": 2560,
+      "height": 1440
+    }
+  ],
+  "external_document_writes": 0
+}

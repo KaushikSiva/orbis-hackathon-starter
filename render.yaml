@@ -1,0 +1,73 @@
+# One hosted studio and one private Neo4j instance. Persistent disks require paid plans.
+services:
+  - type: pserv
+    name: showroom-neo4j
+    runtime: docker
+    repo: https://github.com/KaushikSiva/orbis-hackathon-starter
+    branch: main
+    region: oregon
+    plan: 1c-2g
+    dockerfilePath: ./deploy/neo4j/Dockerfile
+    dockerContext: .
+    autoDeployTrigger: 'off'
+    disk:
+      name: showroom-graph-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: NEO4J_PASSWORD
+        generateValue: true
+      - key: NEO4J_server_default__listen__address
+        value: 0.0.0.0
+      - key: NEO4J_server_memory_heap_initial__size
+        value: 256m
+      - key: NEO4J_server_memory_heap_max__size
+        value: 512m
+      - key: NEO4J_server_memory_pagecache_size
+        value: 256m
+  - type: web
+    name: showroom
+    runtime: docker
+    repo: https://github.com/KaushikSiva/orbis-hackathon-starter
+    branch: main
+    region: oregon
+    plan: 0.5c-512mb
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeployTrigger: 'off'
+    healthCheckPath: /api/health
+    disk:
+      name: showroom-app-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: SHOWROOM_DATA_DIR
+        value: /var/data/showroom
+      - key: SHOWROOM_REQUIRE_AUTH
+        value: "true"
+      - key: SHOWROOM_ACCESS_PASSWORD
+        generateValue: true
+      - key: NEO4J_HOST
+        fromService:
+          type: pserv
+          name: showroom-neo4j
+          property: host
+      - key: NEO4J_USER
+        value: neo4j
+      - key: NEO4J_PASSWORD
+        fromService:
+          type: pserv
+          name: showroom-neo4j
+          envVarKey: NEO4J_PASSWORD
+      - key: REACTOR_API_KEY
+        sync: false
+      - key: EXA_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: AMBIGUOUS_API_KEY
+        sync: false
+      - key: SHOWROOM_SHARE_EMAIL
+        sync: false

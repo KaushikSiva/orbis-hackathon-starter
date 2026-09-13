@@ -1,5 +1,25 @@
-.env.local
-.next/
+.env
+.env.*
+!.env.example
+.venv/
 node_modules/
-npm-debug.log*
-*.tsbuildinfo
+dist/
+__pycache__/
+.pytest_cache/
+*.pyc
+backend/data/
+.DS_Store
+*.log
+
+# Generated publication copies and private capture intermediates
+/publication/
+/artifacts/video/raw-capture/
+/tooling/.capture/
+
+/artifacts/video/live-raw/
+/artifacts/video/live-cdp-raw/
+
+# Private Ambiguous CLI identity
+.ambi/
+
+/artifacts/video/approved-save-raw/

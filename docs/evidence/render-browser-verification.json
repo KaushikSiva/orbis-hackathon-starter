@@ -1,0 +1,15 @@
+{
+  "verified_at": "2026-09-12T22:24:27.182Z",
+  "url": "https://showroom-q4s4.onrender.com",
+  "desktop": true,
+  "mobile": true,
+  "mobile_horizontal_overflow": false,
+  "page_errors": [],
+  "orbis_attempt": {
+    "status": 429,
+    "reason": "concurrent_sessions_per_model: limit 1, current 1",
+    "honest_capacity_error_displayed": true,
+    "hosted_frames_verified": false
+  },
+  "external_document_writes": 0
+}

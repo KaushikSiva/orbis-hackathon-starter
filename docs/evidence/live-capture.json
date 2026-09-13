@@ -1,0 +1,109 @@
+{
+  "captured_at": "2026-09-12T19:51:38.998Z",
+  "footage": "Actual existing Orbis browser session captured through CDP, no new session and no synthetic frames. Screen frames retain wall-clock spacing.",
+  "room_id": "d32e33ae-bfb6-446f-9d9e-1afb727a4416",
+  "initial_video": {
+    "width": 2560,
+    "height": 1440,
+    "time": 227.514,
+    "readyState": 4,
+    "frames": 4022,
+    "srcObject": true
+  },
+  "final_video": {
+    "width": 2560,
+    "height": 1440,
+    "time": 348.107,
+    "readyState": 4,
+    "frames": 6166,
+    "srcObject": true
+  },
+  "screen_frames": 1175,
+  "health": {
+    "status": "ok",
+    "integrations": {
+      "reactor": {
+        "configured": true,
+        "status": "not_verified"
+      },
+      "ambiguous": {
+        "configured": false,
+        "status": "missing_key"
+      },
+      "neo4j": {
+        "configured": true,
+        "status": "connected"
+      }
+    },
+    "catalog": {
+      "count": 4,
+      "price_checked_at": "2026-09-12",
+      "mode": "curated merchant snapshot"
+    }
+  },
+  "approval_attempted_without_credentials": true,
+  "budget": 900,
+  "keep": [
+    "existing sofa",
+    "windows & layout"
+  ],
+  "directives": [
+    {
+      "id": "041af076-2dad-46be-be7f-9df25270deb6",
+      "instruction": "Change the walls to a soft sage olive green and add olive green cushions. Keep the existing tan sofa, windows, layout and room geometry unchanged.",
+      "prompt": "Photorealistic interior redesign of this same living room. Preserve the original camera position, room geometry, doors and windows. One continuous static wide shot, no cuts. Design direction: Warm minimal, Natural textures. Keep unchanged: existing sofa, windows & layout. Furniture budget: USD 2500.00. Earlier accepted instructions: none. Current change: Change the walls to a soft sage olive green and add olive green cushions. Keep the existing tan sofa, windows, layout and room geometry unchanged.. The redesign is an illustrative visualization; keep all objects physically plausible.",
+      "status": "accepted",
+      "created_at": "2026-09-12T19:45:31.268233+00:00",
+      "message": "Orbis emitted prompt_accepted.",
+      "acknowledged_at": "2026-09-12T19:45:32.674603+00:00",
+      "acknowledgement_source": "browser Reactor SDK event"
+    },
+    {
+      "id": "ea726d99-bd44-42b7-a678-2132ef240a74",
+      "instruction": "Keep the sage olive walls and tan sofa. Transform the lighting to a warm amber evening glow, with a glowing sculptural floor lamp beside the sofa. Keep windows, layout and room geometry unchanged.",
+      "prompt": "Photorealistic interior redesign of this same living room. Preserve the original camera position, room geometry, doors and windows. One continuous static wide shot, no cuts. Design direction: Warm minimal, Natural textures. Keep unchanged: existing sofa, windows & layout. Furniture budget: USD 2500.00. Earlier accepted instructions: Change the walls to a soft sage olive green and add olive green cushions. Keep the existing tan sofa, windows, layout and room geometry unchanged.. Current change: Keep the sage olive walls and tan sofa. Transform the lighting to a warm amber evening glow, with a glowing sculptural floor lamp beside the sofa. Keep windows, layout and room geometry unchanged.. The redesign is an illustrative visualization; keep all objects physically plausible.",
+      "status": "accepted",
+      "created_at": "2026-09-12T19:45:58.248541+00:00",
+      "message": "Orbis emitted prompt_accepted.",
+      "acknowledged_at": "2026-09-12T19:45:58.337575+00:00",
+      "acknowledgement_source": "browser Reactor SDK event"
+    },
+    {
+      "id": "6125e7b5-c8a4-4560-8486-d2b79161ceb8",
+      "instruction": "Paint the large back wall a rich deep olive green. Keep the existing sofa, windows, furniture positions and camera view unchanged.",
+      "prompt": "Paint the large back wall a rich deep olive green. Keep the existing sofa, windows, furniture positions and camera view unchanged.. Photorealistic redesign of the same living room, a continuous static wide shot. Preserve room geometry, camera position, doors and windows. Keep unchanged: existing sofa, windows & layout. Style: Warm minimal, Natural textures. Furniture budget: USD 900.00. Prior design context: Change the walls to a soft sage olive green and add olive green cushions. Keep the existing tan sofa, windows, layout and room geometry unchanged.; Keep the sage olive walls and tan sofa. Transform the lighting to a warm amber evening glow, with a glowing sculptural floor lamp beside the sofa. Keep windows, layout and room geometry unchanged.. Physically plausible furniture and lighting, no cuts.",
+      "status": "accepted",
+      "created_at": "2026-09-12T19:49:10.093031+00:00",
+      "message": "Orbis emitted prompt_accepted.",
+      "acknowledged_at": "2026-09-12T19:49:10.880830+00:00",
+      "acknowledgement_source": "browser Reactor SDK event"
+    },
+    {
+      "id": "4245b3ef-d6c5-4842-996a-3c725a0594c8",
+      "instruction": "Change the large floor rug to a rich cobalt blue. Keep the olive wall, existing sofa and layout. Add warm amber evening light.",
+      "prompt": "Change the large floor rug to a rich cobalt blue. Keep the olive wall, existing sofa and layout. Add warm amber evening light.. Photorealistic redesign of the same living room, a continuous static wide shot. Preserve room geometry, camera position, doors and windows. Keep unchanged: existing sofa, windows & layout. Style: Warm minimal, Natural textures. Furniture budget: USD 900.00. Prior design context: Keep the sage olive walls and tan sofa. Transform the lighting to a warm amber evening glow, with a glowing sculptural floor lamp beside the sofa. Keep windows, layout and room geometry unchanged.; Paint the large back wall a rich deep olive green. Keep the existing sofa, windows, furniture positions and camera view unchanged.. Physically plausible furniture and lighting, no cuts.",
+      "status": "accepted",
+      "created_at": "2026-09-12T19:49:35.004347+00:00",
+      "message": "Orbis emitted prompt_accepted.",
+      "acknowledged_at": "2026-09-12T19:49:36.528764+00:00",
+      "acknowledgement_source": "browser Reactor SDK event"
+    }
+  ],
+  "graph": {
+    "status": "connected",
+    "explanation": "Neo4j ranks Product → HAS_STYLE → Style ← PREFERS ← Room paths, then respects the remaining budget and keep constraints.",
+    "matched_tags": [
+      "lighting",
+      "minimal",
+      "natural",
+      "texture",
+      "warm"
+    ],
+    "excluded_categories": [
+      "sofa"
+    ],
+    "relationship_count": 6
+  },
+  "total": 219.97,
+  "exports": []
+}

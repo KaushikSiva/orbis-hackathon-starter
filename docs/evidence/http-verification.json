@@ -1,0 +1,47 @@
+{
+  "natural": {
+    "products": [
+      "LOHALS flatwoven rug"
+    ],
+    "total": 129.99,
+    "graph": {
+      "status": "connected",
+      "explanation": "Neo4j ranks Product \u2192 HAS_STYLE \u2192 Style \u2190 PREFERS \u2190 Room paths, then respects the remaining budget and keep constraints.",
+      "matched_tags": [
+        "natural"
+      ],
+      "excluded_categories": [
+        "sofa"
+      ],
+      "relationship_count": 1
+    }
+  },
+  "actual_neo4j_paths": [
+    {
+      "style": "natural",
+      "product": "ikea-lohals-50277393"
+    }
+  ],
+  "minimal": {
+    "products": [
+      "LACK coffee table",
+      "RANARP work lamp"
+    ],
+    "total": 89.98,
+    "graph": {
+      "status": "connected",
+      "explanation": "Neo4j ranks Product \u2192 HAS_STYLE \u2192 Style \u2190 PREFERS \u2190 Room paths, then respects the remaining budget and keep constraints.",
+      "matched_tags": [
+        "minimal"
+      ],
+      "excluded_categories": [
+        "sofa"
+      ],
+      "relationship_count": 1
+    }
+  },
+  "room_id": "274b92cf-0a5c-4095-962d-85402ed06c27",
+  "upload": "pass: decoded sample and retrievable JPEG; invalid image415",
+  "approval": "pass: unapproved403; changed room409; no external write",
+  "reactor": "missing credentials503; no session started"
+}

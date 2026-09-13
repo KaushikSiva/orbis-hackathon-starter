@@ -1,0 +1,24 @@
+{
+  "suggested_name": "showroom",
+  "description": "A room design workspace with Orbis live video steering, budget-aware product references, and inspectable design handoffs.",
+  "topics": [
+    "orbis",
+    "reactor",
+    "live-video",
+    "interior-design",
+    "react",
+    "fastapi",
+    "neo4j"
+  ],
+  "presentation_focus": "Live Models: continuing visual room direction",
+  "disclosure": "One SHOWROOM codebase, presented with a live-video-focused README. See the canonical project and other variants in the documentation.",
+  "repository_url": "https://github.com/KaushikSiva/showroom",
+  "canonical_repository_url": "https://github.com/KaushikSiva/showroom",
+  "related_repositories": {
+    "live-video": "https://github.com/KaushikSiva/showroom",
+    "ambiguous-coworker": "https://github.com/KaushikSiva/showroom-coworker",
+    "qoder-neo4j": "https://github.com/KaushikSiva/showroom-graph"
+  },
+  "publication_status": "published public GitHub repository",
+  "published_at": "2026-09-12T20:22:49.989056+00:00"
+}

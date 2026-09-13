@@ -1,0 +1,43 @@
+{
+  "recorded_at": "2026-09-12T20:35:50.580Z",
+  "user_authorization": "Parent relayed explicit approval of the exact prepared design brief before this script was run.",
+  "room_id": "d32e33ae-bfb6-446f-9d9e-1afb727a4416",
+  "prepared_approval_id": "822490e8-60a8-43ce-ad8c-703191884cae",
+  "ui_approval_id": "3cf68081-bc94-4fa9-abcb-1c7e1924d052",
+  "exact_content_compared": true,
+  "title": "SHOWROOM \u2014 The living room",
+  "budget": 900,
+  "total": 219.97,
+  "exports": [
+    {
+      "id": "4adbc629-1359-4b19-bb75-74e9f38d26a3",
+      "title": "SHOWROOM \u2014 The living room",
+      "type": "doc",
+      "url": "https://app.ambiguous.ai/docs/4adbc629-1359-4b19-bb75-74e9f38d26a3",
+      "api_url": "https://app.ambiguous.ai/api/documents/4adbc629-1359-4b19-bb75-74e9f38d26a3",
+      "verified": true,
+      "created_at": "2026-09-12T20:35:35.854318+00:00",
+      "approval_id": "3cf68081-bc94-4fa9-abcb-1c7e1924d052",
+      "verification": "title and all authored text verified",
+      "verified_at": "2026-09-12T20:35:36.839923+00:00"
+    }
+  ],
+  "outbound_save_attempts": 2,
+  "verified_document_count": 1,
+  "recovery_evidence": "ambiguous-save-recovery.json",
+  "verified_readback": true,
+  "saved_at_seconds": 7.446,
+  "independent_root_readback": {
+    "status": 200,
+    "document_id_matches": true,
+    "title_matches": true,
+    "all_three_product_rows_match": true,
+    "all_source_urls_and_dimensions_match": true,
+    "budget_matches": 900,
+    "shopping_total_matches": 219.97,
+    "all_accepted_instructions_match": true,
+    "workspace_list_occurrences": 1,
+    "verification_source": "Root agent independently retrieved the saved document and workspace list after successful capture."
+  },
+  "access": "Restricted workspace document. The saved API result is verified; opening the UI link requires workspace access and may require the participant to claim the provisioned workspace."
+}

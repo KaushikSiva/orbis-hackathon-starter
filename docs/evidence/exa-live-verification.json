@@ -1,0 +1,88 @@
+{
+  "verified_at": "2026-09-12T21:14:18.698743+00:00",
+  "room_id": "caf537a4-0cb9-425e-9e2c-ad92fef29e99",
+  "provider": "real Exa API",
+  "product_count": 3,
+  "total": 84.99,
+  "unpriced_count": 2,
+  "graph": {
+    "status": "connected",
+    "explanation": "Neo4j ranks Product \u2192 HAS_STYLE \u2192 Style \u2190 PREFERS \u2190 Room paths, then respects the remaining budget and keep constraints. Amazon listings were retrieved through Exa. Only source-quoted prices enter the subtotal; missing prices require checking Amazon.",
+    "matched_tags": [
+      "minimal",
+      "natural",
+      "texture",
+      "warm"
+    ],
+    "excluded_categories": [
+      "sofa"
+    ],
+    "relationship_count": 1
+  },
+  "products": [
+    {
+      "id": "amazon-B0GF7NNKXZ",
+      "name": "chairus Square Nightstands Set of 2, Modern Accent End Table with 2-Tier Storage Shelf, Solid Wood Small Side Table for Living Room/Bedroom, Natural",
+      "brand": "Amazon listing",
+      "category": "table",
+      "price": 84.99,
+      "currency": "USD",
+      "image_url": "https://fls-na.amazon.com/1/batch/1/OP/ATVPDKIKX0DER:134-9138425-1643511:N2TQ6ESKWEZM6AGWZ5FW$uedata=s:%2Frd%2Fuedata%3Fstaticb%26id%3DN2TQ6ESKWEZM6AGWZ5FW:0",
+      "source_url": "https://www.amazon.com/dp/B0GF7NNKXZ",
+      "dimensions": "18\"D x 18\"W x 22\"H",
+      "price_status": "source_quote",
+      "price_quote": "$84.99",
+      "retrieved_at": "2026-09-12T21:14:17.924846+00:00",
+      "source": "exa_amazon",
+      "tags": [
+        "natural"
+      ],
+      "score": 1,
+      "matched_styles": [
+        "natural"
+      ],
+      "selected": true,
+      "reason": "Matches natural through Neo4j style relationships."
+    },
+    {
+      "id": "amazon-B0949SB1ST",
+      "name": "SIMPLIHOME Acadian SOLID WOOD 19 inch wide Square Rustic Contemporary End Side Table in Black with Storage, 2 Shelves, for the Living Room and Bedroom",
+      "brand": "Amazon listing",
+      "category": "table",
+      "price": null,
+      "currency": "USD",
+      "image_url": "https://fls-na.amazon.com/1/batch/1/OP/ATVPDKIKX0DER:131-2782264-2466721:3CFZPXJJZXYBFDKCZXC2$uedata=s:%2Frd%2Fuedata%3Fstaticb%26id%3D3CFZPXJJZXYBFDKCZXC2:0",
+      "source_url": "https://www.amazon.com/dp/B0949SB1ST",
+      "dimensions": "19\"D x 19\"W x 20\"H",
+      "price_status": "unavailable",
+      "price_quote": null,
+      "retrieved_at": "2026-09-12T21:14:17.924608+00:00",
+      "source": "exa_amazon",
+      "tags": [],
+      "score": 0,
+      "matched_styles": [],
+      "selected": true,
+      "reason": "Price unavailable; check the Amazon listing before budgeting. Does not replace a kept item."
+    },
+    {
+      "id": "amazon-B0B7L671PR",
+      "name": "Walker Edison Natalee Modern Farmhouse 1 Drawer Wood Square Side Table Living Room Small End Accent Table, 19 Inch, Rustic Oak and White",
+      "brand": "Amazon listing",
+      "category": "table",
+      "price": null,
+      "currency": "USD",
+      "image_url": "https://fls-na.amazon.com/1/batch/1/OP/ATVPDKIKX0DER:146-7239094-0566057:RXKFQ50KCMGRHMMHRXXB$uedata=s:%2Frd%2Fuedata%3Fstaticb%26id%3DRXKFQ50KCMGRHMMHRXXB:0",
+      "source_url": "https://www.amazon.com/dp/B0B7L671PR",
+      "dimensions": "25\" H x 19\" L x 20\" W",
+      "price_status": "unavailable",
+      "price_quote": null,
+      "retrieved_at": "2026-09-12T21:14:17.923179+00:00",
+      "source": "exa_amazon",
+      "tags": [],
+      "score": 0,
+      "matched_styles": [],
+      "selected": true,
+      "reason": "Price unavailable; check the Amazon listing before budgeting. Does not replace a kept item."
+    }
+  ]
+}

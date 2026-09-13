@@ -1,0 +1,82 @@
+[
+  {
+    "id": "ikea-lohals-50277393",
+    "name": "LOHALS flatwoven rug",
+    "brand": "IKEA",
+    "category": "rug",
+    "price": 129.99,
+    "currency": "USD",
+    "source_url": "https://www.ikea.com/us/en/p/lohals-rug-flatwoven-natural-50277393/",
+    "image_url": "https://www.ikea.com/us/en/images/products/lohals-rug-flatwoven-natural__0893155_pe583381_s5.jpg?f=l",
+    "dimensions": "63 \u00d7 91 in; 0.5 in thick",
+    "tags": [
+      "warm",
+      "natural",
+      "neutral",
+      "japandi",
+      "texture"
+    ],
+    "price_checked_at": "2026-09-12",
+    "notes": "Jute. Rug underlay sold separately. Verify size and current availability with retailer."
+  },
+  {
+    "id": "ikea-ranarp-50231319",
+    "name": "RANARP work lamp",
+    "brand": "IKEA",
+    "category": "lighting",
+    "price": 59.99,
+    "currency": "USD",
+    "source_url": "https://www.ikea.com/us/en/p/ranarp-work-lamp-off-white-50231319/",
+    "image_url": "https://www.ikea.com/pt/pt/images/products/ranarp-candeeiro-de-secretaria-branco-bege__0610455_pe685514_s5.jpg?f=l",
+    "dimensions": "17 in high; 7 in shade diameter; 59 in cord",
+    "tags": [
+      "warm",
+      "reading",
+      "white",
+      "classic",
+      "lighting"
+    ],
+    "price_checked_at": "2026-09-12",
+    "notes": "Bulb sold separately; IKEA recommends LED E26 globe opal white."
+  },
+  {
+    "id": "ikea-lack-90449905",
+    "name": "LACK coffee table",
+    "brand": "IKEA",
+    "category": "table",
+    "price": 29.99,
+    "currency": "USD",
+    "source_url": "https://www.ikea.com/us/en/p/lack-coffee-table-white-90449905/",
+    "image_url": "https://image-ikea.mncdn.com/urunler/2000_2000/PE746803.jpg",
+    "dimensions": "35.375 \u00d7 21.625 \u00d7 17.75 in",
+    "tags": [
+      "minimal",
+      "white",
+      "modern",
+      "compact",
+      "storage"
+    ],
+    "price_checked_at": "2026-09-12",
+    "notes": "White finish. Shelf below tabletop. Measure clearance before buying."
+  },
+  {
+    "id": "ikea-glostad-70489011",
+    "name": "GLOSTAD loveseat",
+    "brand": "IKEA",
+    "category": "sofa",
+    "price": 169.0,
+    "currency": "USD",
+    "source_url": "https://www.ikea.com/us/en/p/glostad-loveseat-knisa-dark-gray-70489011/",
+    "image_url": "https://www.ikea.com/us/en/images/products/glostad-loveseat-knisa-dark-gray__1059523_ph180677_s5.jpg?f=xl",
+    "dimensions": "47.625 in wide \u00d7 30.75 in deep; 26.75 in backrest height",
+    "tags": [
+      "minimal",
+      "gray",
+      "modern",
+      "compact",
+      "seating"
+    ],
+    "price_checked_at": "2026-09-12",
+    "notes": "Knisa dark gray upholstery. Verify doorway and room clearance."
+  }
+]

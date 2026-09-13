@@ -1,106 +1,51 @@
-# Orbis hackathon starter!
+# SHOWROOM / Live rooms
 
-A minimal Next.js example for the public Reactor-hosted Visko Orbis Stable API.
-It demonstrates server-side token minting, WebRTC video and audio, text-to-video,
-optional image-to-video, live prompt steering, delivery resolution, pause,
-resume, and a foldable Nano Banana-to-Orbis livestreaming example.
+SHOWROOM is now included in this fork of [Visko-Platform/orbis-hackathon-starter](https://github.com/Visko-Platform/orbis-hackathon-starter). The complete application is at the repository root: `frontend/`, `backend/`, `scripts/`, deployment configuration, pitch deck and demo video. Start with [QUICKSTART.md](QUICKSTART.md).
 
-## Requirements
+The original Next.js starter is preserved without source changes in [starter/](starter/README.md), with its upstream Git history retained. SHOWROOM was developed independently and imported into this fork afterward; this repository does not claim it was originally built from the starter.
 
-- Node.js 20.9 or newer
-- A Reactor API key with access to Visko Orbis Stable
-- A Google Gemini API key with access to Nano Banana
+The [live Render studio](https://showroom-q4s4.onrender.com) currently deploys from the [canonical SHOWROOM repository](https://github.com/KaushikSiva/showroom), whose backend and frontend match this import. This fork’s Blueprint and deployment helper target this fork when used for a new deployment. Existing services were not changed by the import.
 
-## Run locally
+**Hosted studio:** [showroom-q4s4.onrender.com](https://showroom-q4s4.onrender.com) · sign-in required. See the [Render deployment guide](docs/deploy-render.md).
 
-```bash
-cp .env.example .env.local
-# Add your Reactor API key to .env.local.
-npm install
-npm run dev
-```
+**A room you can direct while you think.**
 
-Open <http://localhost:3000>.
+Upload a living room, preserve what matters and use short instructions to direct a live Orbis session. SHOWROOM keeps the budget and product decisions beside the visual preview so the conversation can lead to a practical room plan.
 
-Set both keys in `.env.local`:
+The browser integration uses Reactor’s streaming SDK with access scoped by the Python backend. Connection startup, prompt acknowledgments, capacity errors and disconnects have visible states. A real Orbis session was captured with advancing decoded frames and two visibly different directions: a deep olive wall, then a cobalt rug with warm lighting. Geometry and furnishings can drift; the video is illustrative. The verification record contains the evidence.
 
-```dotenv
-REACTOR_API_KEY=your_reactor_api_key
-GEMINI_API_KEY=your_gemini_api_key
-```
+![Actual SHOWROOM workspace](artifacts/screenshots/live-change-2-final.png)
 
-Keep both keys server-side. The browser receives only the short-lived Reactor
-JWT and the image returned by the Nano Banana route.
+## Direct and discover by voice
 
-## Nano Banana kickoff example
+Maximize the room and keep typing or dictating directions. Pause holds the visible frame and pauses Orbis generation; Resume continues it. Furniture search now retrieves real Amazon product pages through Exa, with OpenAI speech-to-text beside both inputs. Review the transcript before sending. Missing source prices display “Check price” and are excluded from the priced subtotal. [Actual provider and browser evidence](docs/evidence/voice-and-player.md).
 
-Connect to Orbis, expand **Livestreaming example**, and click
-**Edit and start stream**. The bundled `dog.png` is displayed as the source
-image. The server sends it with the displayed image-editing prompt to
-`gemini-2.5-flash-image`. Gemini then analyzes the edited image with the user
-prompt and returns a plain-text, image-grounded prompt. The
-edited output is previewed, uploaded as the Orbis start image, and used with
-that grounded prompt to begin the stream.
+![Fullscreen room with paused preview and direction controls](artifacts/screenshots/fullscreen-paused.png)
 
-The two starting prompts are exported from `lib/nano-banana.ts`.
-`NANO_BANANA_PROMPT` controls the image edit, while `ORBIS_KICKOFF_PROMPT`
-describes the requested motion. The final Gemini-grounded prompt is displayed
-before it is sent to Orbis.
+![Real Amazon search from an OpenAI-transcribed test recording](artifacts/screenshots/amazon-voice-search.png)
 
-## API flow
+Click furniture directly in a live, paused or saved frame to inspect visually similar Amazon matches. New live sessions record locally; **Save & rewind** opens a seekable replay, and **Download video** keeps a separate file. Clips persist in this browser. [Frame shopping and recording evidence](docs/evidence/video-shopping.md).
 
-1. `POST /api/token` requests a scoped session JWT from
-   `https://api.reactor.inc/tokens`.
-2. `ReactorProvider` connects to `reactor/visko-orbis-stable` with the
-   recv-only `main_video` and `main_audio` tracks.
-3. The model sends a `state` snapshot. Its `state.available_resolutions` list
-   replaces the starter's initial documented resolution choices.
-4. If supplied, the reference image is uploaded and passed to `set_image`
-   before `start`.
-5. If selected, `set_resolution` stages a delivery tier for the next `start`.
-   Omitting it keeps the model's current setting; the documented default is
-   `2k`.
-6. `set_prompt` supplies the required prompt, then `start` begins generation.
-7. Sending another `set_prompt` while running steers the video at the next
-   chunk boundary.
+Search requests four Amazon results, reuses cached content and includes visible brand markings, colors and item types in matching. [Measured cache latency](docs/evidence/search-latency-live.json). [Render hosting setup](docs/deploy-render.md).
 
-## Documented model behavior
+## Run and inspect
 
-- A prompt is required before `start`; the reference image is optional.
-- A 16:9 reference image works best. Other aspect ratios are resized without
-  cropping and may appear distorted.
-- The starter initially shows the currently documented `1080p`, `2k`, and `4k`
-  tiers. After connection, treat `state.available_resolutions` as authoritative
-  and send the selected value exactly as given.
-- `set_resolution` applies from the next `start`, not during the active run.
-- Orbis emits chunks about every 1.8 seconds. The first chunk emits no frames
-  while the upscaler primes; this is expected.
-- Commands are asynchronous. Use model events such as `state`,
-  `prompt_accepted`, `resolution_accepted`, `generation_started`,
-  `chunk_complete`, and `command_error` as the source of truth.
-- `pause` takes effect after the current chunk. `resume` continues the same
-  generation, and `reset` clears the current prompt and image.
+See [QUICKSTART](QUICKSTART.md) for Python/FastAPI, React and local Neo4j startup. Frontend: **http://localhost:5190**. Backend: **http://localhost:8190**. Credentials remain server-side in ignored `.env`.
 
-## Project files
+- [Current verification and integration status](docs/evidence/verification.md)
+- [Five-page PDF deck](artifacts/showroom-deck.pdf) and [editable deck](docs/deck/showroom-deck.html)
+- [Two-minute MP4](artifacts/video/showroom-demo.mp4), [captions](artifacts/video/showroom-demo.srt) and [poster](artifacts/video/poster.jpg)
+- [Qoder engineering evidence](docs/evidence/qoder.md)
+- [Event eligibility and source disclosure](docs/evidence/event-eligibility.md)
 
-- `app/api/token/route.ts` performs the server-side token exchange.
-- `app/api/nano-banana/route.ts` performs the server-side image edit.
-- `app/api/orbis-prompt/route.ts` creates the image-grounded video prompt.
-- `components/orbis-demo.tsx` composes the provider, player, controls, and demo.
-- `components/orbis-player.tsx` renders the streamed video and audio.
-- `components/orbis-controls.tsx` renders the session controls.
-- `components/nano-banana-example.tsx` owns the kickoff example and source image.
-- `hooks/use-orbis-session.ts` contains the reusable Orbis command sequence and
-  session state.
-- `dog.png` is the Nano Banana source image.
-- `lib/orbis.ts` contains the public model configuration and message helpers.
-- `lib/orbis-prompt.ts` contains the plain-text Gemini grounding instruction.
-- `lib/nano-banana.ts` contains the model and kickoff prompt.
-- `.env.example` documents the required environment variables.
+![Actual product list](artifacts/screenshots/shopping.png)
 
-For the complete command parameters, message schemas, tracks, and current model
-behavior, use the public Reactor documentation:
+![System architecture](docs/architecture.svg)
 
-- [Visko Orbis Stable API](https://www.reactor.inc/models/visko-orbis-stable/api)
-- [Visko Orbis Dynamic API](https://www.reactor.inc/models/visko-orbis-dynamic/api)
-- [Gemini image generation and editing](https://ai.google.dev/gemini-api/docs/image-generation)
+## Shared-code disclosure
+
+This is **one SHOWROOM codebase** with a presentation-specific README. The live-video, Ambiguous-coworker and Qoder/Neo4j repository packages contain the same backend and frontend source, recorded by SHA-256 in `publication.json`. They are not three independent projects. The participant confirmed cross-event eligibility on September 12, 2026. No event entry, award or hosted application deployment is implied by this repository.
+
+[Canonical live-video repository](https://github.com/KaushikSiva/showroom) · [Ambiguous coworker presentation](https://github.com/KaushikSiva/showroom-coworker) · [Qoder / Neo4j presentation](https://github.com/KaushikSiva/showroom-graph).
+
+Generated video is an illustrative preview; product source links, dimensions, reference images and catalog prices substantiate buying decisions. No hardware benchmark, award win or customer traction is claimed.

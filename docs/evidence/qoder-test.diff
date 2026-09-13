@@ -1,0 +1,207 @@
+diff --git a/backend/test_qoder_journey.py b/backend/test_qoder_journey.py
+new file mode 100644
+index 0000000..578e47b
+--- /dev/null
++++ b/backend/test_qoder_journey.py
+@@ -0,0 +1,201 @@
++"""Journey tests for one room: constraint survival, total integrity and fail-closed export guards.
++
++The shared `client` fixture points `main.DATA` at a temporary directory, forces the graph driver
++offline and reports every provider key as missing, so these tests exercise the real routes without
++touching Neo4j, Reactor, Ambiguous or the repository's `.env`. Offline graph and mocked providers
++prove contract behaviour only; they are not live integration evidence.
++"""
++import json
++import sqlite3
++import uuid
++
++from backend import main
++from backend.test_main import client, products, room
++
++DIRECTIONS = [
++    "Make the light warmer and add natural texture",
++    "Shift toward a japandi look with compact storage",
++]
++
++
++def cents(amount):
++    return round(amount * 100)
++
++
++def catalog_item(product_id):
++    return next(product for product in main.CATALOG if product["id"] == product_id)
++
++
++def accept_directions(client, room_id, instructions):
++    directives = []
++    for instruction in instructions:
++        created = client.post(f"/api/rooms/{room_id}/directives", json={"instruction": instruction})
++        assert created.status_code == 200
++        directive = created.json()["directive"]
++        assert directive["status"] == "pending" and directive["instruction"] == instruction
++        acknowledged = client.post(f"/api/rooms/{room_id}/directives/{directive['id']}/ack", json={"status": "accepted"})
++        assert acknowledged.status_code == 200
++        assert acknowledged.json()["directives"][-1]["status"] == "accepted"
++        directives.append(directive)
++    return directives
++
++
++def assert_selection_honours_constraints(current, excluded):
++    """Every returned product must be a real catalog reference, and the total must be their exact sum."""
++    selected = current["products"]
++    assert selected
++    assert len({product["category"] for product in selected}) == len(selected)
++    assert set(current["graph"]["excluded_categories"]) == excluded
++    assert not excluded & {product["category"] for product in selected}
++    for product in selected:
++        source = catalog_item(product["id"])
++        assert product["name"] == source["name"]
++        assert cents(product["price"]) == cents(source["price"])
++    assert cents(current["total"]) == sum(cents(catalog_item(product["id"])["price"]) for product in selected)
++    assert cents(current["total"]) <= cents(current["budget"])
++
++
++def test_budget_and_keep_survive_two_successive_design_directions(client):
++    budget, keep = 260.0, ["existing sofa", "existing rug"]
++    room_id = room(
++        client,
++        name="Qoder journey room",
++        budget=budget,
++        preferences=["Warm minimalism", "Natural materials"],
++        keep=list(keep),
++    )["id"]
++
++    directives = accept_directions(client, room_id, DIRECTIONS)
++    for directive in directives:
++        assert f"USD {budget:.2f}" in directive["prompt"]
++        assert all(item in directive["prompt"] for item in keep)
++    assert "original room photograph" in directives[0]["prompt"]
++    assert DIRECTIONS[0] in directives[1]["prompt"]
++
++    after = client.get(f"/api/rooms/{room_id}").json()
++    assert after["budget"] == budget and after["keep"] == keep
++    assert [directive["status"] for directive in after["directives"]] == ["accepted", "accepted"]
++
++    current = products(client, room_id)
++    assert current["budget"] == budget and current["keep"] == keep
++    assert current["graph"]["status"] == "fallback"
++    assert "unavailable" in current["graph"]["explanation"].lower()
++    assert "japandi" in current["graph"]["matched_tags"]
++    assert_selection_honours_constraints(current, {"sofa", "rug"})
++    assert cents(current["total"]) == 8998
++
++    released = client.patch(f"/api/rooms/{room_id}", json={"keep": ["existing sofa"]})
++    assert released.status_code == 200
++    released = released.json()
++    assert released["budget"] == budget and released["products"] == [] and released["total"] == 0
++    assert released["graph"]["status"] == "not_queried"
++    assert [directive["status"] for directive in released["directives"]] == ["accepted", "accepted"]
++
++    current = products(client, room_id)
++    assert_selection_honours_constraints(current, {"sofa"})
++    assert cents(current["total"]) == 21997
++
++    retargeted = client.patch(f"/api/rooms/{room_id}", json={"budget": 90})
++    assert retargeted.status_code == 200
++    assert retargeted.json()["keep"] == ["existing sofa"] and retargeted.json()["products"] == []
++
++    current = products(client, room_id)
++    assert current["budget"] == 90 and current["keep"] == ["existing sofa"]
++    assert_selection_honours_constraints(current, {"sofa"})
++    # The 129.99 rug now outranks the rest but no longer fits, so the cheaper pair is selected.
++    assert cents(current["total"]) == 8998
++
++
++def test_shopping_total_equals_sum_of_referenced_product_prices(client):
++    room_id = room(
++        client,
++        budget=400,
++        preferences=["Warm minimalism", "Natural materials"],
++        keep=["existing sofa"],
++    )["id"]
++    accept_directions(client, room_id, ["Add a japandi reading corner"])
++    current = products(client, room_id)
++    assert_selection_honours_constraints(current, {"sofa"})
++    assert cents(current["total"]) == 21997
++
++    preview = client.post(f"/api/rooms/{room_id}/export-preview")
++    assert preview.status_code == 200
++    brief = preview.json()
++    rows = brief["shopping_rows"]
++    assert rows[-1][0] == "Total"
++    listed = rows[1:-1]
++    assert len(listed) == len(current["products"])
++    for product, row in zip(current["products"], listed):
++        source = catalog_item(product["id"])
++        assert [row[0], cents(row[1]), row[2], row[3]] == [
++            source["name"],
++            cents(source["price"]),
++            source["dimensions"],
++            source["source_url"],
++        ]
++    assert cents(rows[-1][1]) == sum(cents(row[1]) for row in listed) == cents(current["total"])
++
++    content = brief["content"]
++    assert f"Merchandise total: USD {current['total']:.2f}" in content
++    assert f"Budget: USD {current['budget']:.2f}" in content
++    assert "Keep unchanged: existing sofa" in content
++    for product in current["products"]:
++        assert f"{product['price']:.2f}" in content
++        assert catalog_item(product["id"])["source_url"] in content
++
++
++def test_export_guard_blocks_unapproved_saves_before_any_provider_call(client, monkeypatch):
++    room_id = room(client)["id"]
++    products(client, room_id)
++    preview = client.post(f"/api/rooms/{room_id}/export-preview").json()
++    calls = []
++
++    async def contact_provider(*args, **kwargs):
++        calls.append((args, kwargs))
++        raise AssertionError("provider contacted before explicit approval")
++
++    monkeypatch.setattr(main, "provider_request", contact_provider)
++    url = f"/api/rooms/{room_id}/export"
++    for body in ({"approval_id": preview["approval_id"]}, {"approval_id": preview["approval_id"], "approved": False}):
++        response = client.post(url, json=body)
++        assert response.status_code == 403
++        assert "approve" in response.json()["detail"].lower()
++    assert client.post(url, json={"approval_id": str(uuid.uuid4()), "approved": True}).status_code == 404
++    assert calls == []
++    assert client.get(f"/api/rooms/{room_id}").json()["exports"] == []
++
++
++def test_missing_ambiguous_integration_fails_closed_without_network(client, monkeypatch):
++    room_id = room(client)["id"]
++    products(client, room_id)
++    preview = client.post(f"/api/rooms/{room_id}/export-preview").json()
++    calls = []
++
++    async def contact_provider(*args, **kwargs):
++        calls.append((args, kwargs))
++        raise AssertionError("network call attempted for an unconfigured provider")
++
++    monkeypatch.setattr(main, "provider_request", contact_provider)
++    monkeypatch.setattr(main, "setting", lambda key, default="": default if key.startswith("NEO4J") else "")
++
++    url = f"/api/rooms/{room_id}/export"
++    body = {"approval_id": preview["approval_id"], "approved": True}
++    for _ in range(2):
++        response = client.post(url, json=body)
++        assert response.status_code == 503
++        detail = response.json()["detail"]
++        assert "not configured" in detail and "AMBIGUOUS_API_KEY" in detail
++    # The retry is still 503 rather than the 409 uncertain-write guard, so no outbound intent was recorded.
++    assert calls == []
++    assert client.get(f"/api/rooms/{room_id}").json()["exports"] == []
++
++
++def test_rooms_persist_in_the_temporary_database_only(client, tmp_path):
++    assert main.DATA == tmp_path
++    created = room(client, name="Isolation probe", budget=321.5, preferences=["Warm minimalism"], keep=["existing rug"])
++    assert client.get(f"/api/rooms/{created['id']}").json() == created
++    assert client.get(f"/api/rooms/{uuid.uuid4()}").status_code == 404
++    with sqlite3.connect(tmp_path / "showroom.db") as con:
++        stored = con.execute("SELECT id, body FROM rooms").fetchall()
++    assert [row[0] for row in stored] == [created["id"]]
++    assert json.loads(stored[0][1])["budget"] == 321.5

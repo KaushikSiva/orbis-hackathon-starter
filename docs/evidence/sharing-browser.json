@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "provider_mode": "mocked API; no external writes",
+  "recipient_visible_before_approval": true,
+  "sharing_failure_visible": true,
+  "retry_preserves_approval_id": true,
+  "pending_and_confirmed_access_visible": true,
+  "mobile_horizontal_overflow": false,
+  "page_errors": []
+}

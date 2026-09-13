@@ -1,0 +1,22 @@
+const fs=require('node:fs');
+const path=require('node:path');
+const {spawnSync}=require('node:child_process');
+const {PDFDocument}=require('../tooling/node_modules/pdf-lib');
+const root=path.resolve(__dirname,'..');
+(async()=>{
+ const pdf=await PDFDocument.load(fs.readFileSync(path.join(root,'artifacts/showroom-deck.pdf')));
+ if(pdf.getPageCount()!==5)throw new Error(`Expected 5 PDF pages, found ${pdf.getPageCount()}`);
+ const video=path.join(root,'artifacts/video/showroom-demo.mp4');
+ const probe=spawnSync('ffprobe',['-v','error','-show_entries','format=duration,size:stream=codec_name,pix_fmt,width,height','-of','json',video],{encoding:'utf8'});
+ if(probe.status!==0)throw new Error(probe.stderr);
+ const info=JSON.parse(probe.stdout),stream=info.streams.find(s=>s.codec_name==='h264');
+ if(!stream||stream.pix_fmt!=='yuv420p'||Math.abs(Number(info.format.duration)-120)>.05)throw new Error(`Invalid video: ${probe.stdout}`);
+ if(Number(info.format.size)>95_000_000)throw new Error('Video exceeds the publication size target');
+ const decode=spawnSync('ffmpeg',['-v','error','-i',video,'-f','null','-'],{encoding:'utf8'});
+ if(decode.status!==0||decode.stderr.trim())throw new Error(`Video decode failure: ${decode.stderr}`);
+ const expected=['artifacts/video/showroom-demo.srt','artifacts/video/poster.jpg','artifacts/screenshots/desktop.png','artifacts/screenshots/mobile.png','artifacts/screenshots/shopping.png','docs/deck/showroom-deck.html','docs/architecture.svg'];
+ for(const f of expected)if(!fs.statSync(path.join(root,f)).size)throw new Error(`Missing or empty ${f}`);
+ const result={verified_at:new Date().toISOString(),pdf_pages:pdf.getPageCount(),video:info,full_video_decoded:true,required_files:expected};
+ fs.writeFileSync(path.join(root,'docs/evidence/artifact-verification.json'),JSON.stringify(result,null,2)+'\n');
+ console.log(JSON.stringify(result,null,2));
+})().catch(e=>{console.error(e);process.exit(1)});

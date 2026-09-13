@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "graph": "connected",
+  "production_frontend": 200,
+  "reactor_runtime": 200,
+  "unauthenticated_workspace": 401,
+  "persistent_room_after_restart": true,
+  "external_provider_calls": 0,
+  "environment_credentials_copied_into_image": false
+}

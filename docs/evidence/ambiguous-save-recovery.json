@@ -1,0 +1,46 @@
+{
+  "attempted_at": "2026-09-12T20:29:28Z",
+  "user_approved_exact_brief": true,
+  "room_id": "d32e33ae-bfb6-446f-9d9e-1afb727a4416",
+  "approval_id": "3cf68081-bc94-4fa9-abcb-1c7e1924d052",
+  "response_status": 502,
+  "sanitized_detail": "Ambiguous: The provider could not complete this request. Retry without changing your room.",
+  "upstream_detail": "Original upstream response was not retained by the adapter.",
+  "persisted_write_status": "uncertain",
+  "exports": [],
+  "reconciliation_reads": [
+    {
+      "checked_at": "2026-09-12T20:30:00Z",
+      "documents_status": 200,
+      "documents": []
+    }
+  ],
+  "automatic_retry_performed": false,
+  "resolution": "After complete documents/activity lists proved empty, the same exact approved snapshot was retried once using documented restricted visibility. One document was created and all authored content was verified by read-back.",
+  "reconciliation": {
+    "approval_id": "3cf68081-bc94-4fa9-abcb-1c7e1924d052",
+    "write_status": "reconciled_empty",
+    "reconciliation": {
+      "reason": "Complete document and document-activity lists are empty after the failed request",
+      "reads": [
+        {
+          "path": "/api/documents",
+          "checked_at": "2026-09-12T20:35:28.134166+00:00",
+          "total": 0,
+          "has_more": false
+        },
+        {
+          "path": "/api/activity",
+          "checked_at": "2026-09-12T20:35:28.927401+00:00",
+          "total": 0,
+          "has_more": false
+        }
+      ]
+    },
+    "external_write_performed": false
+  },
+  "outbound_save_attempts": 2,
+  "verified_document_count": 1,
+  "verified_save_evidence": "approved-save.json",
+  "visibility_contract": "https://app.ambiguous.ai/api/openapi.json"
+}
