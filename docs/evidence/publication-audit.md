@@ -78,3 +78,7 @@ Both Render services are live. The public [HTTP receipt](render-http-verificatio
 ## Automatic approved-document sharing
 
 The new source digest is `6363d8f53fc725dc6e2f56d88f0f0384d2fb4365d7e45f4b732dafea8e6f41a2` across 39 backend/frontend files. Automatic viewer sharing uses the email frozen into each new approval; the address stays in private environment configuration. The backend suite passes 52 tests, the frontend builds, and the sharing browser contract passes. [Real permission readback](sharing-provider-readback.json) confirms prior invitations without new external writes. Publication packages exclude the recipient email and the private sharing receipts.
+
+## Public Render access
+
+At the participant’s request, Render’s optional HTTP Basic gate was disabled using service environment configuration. Anonymous HTTP and fresh-browser checks pass; see [public access verification](render-public-access.json). The current README and five-page pitch deck reflect public access. Application source is unchanged; the verification helper now accepts a public-access mode.

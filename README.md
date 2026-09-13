@@ -6,7 +6,7 @@ The original Next.js starter is preserved without source changes in [starter/](s
 
 The [live Render studio](https://showroom-q4s4.onrender.com) currently deploys from the [canonical SHOWROOM repository](https://github.com/KaushikSiva/showroom), whose backend and frontend match this import. This fork’s Blueprint and deployment helper target this fork when used for a new deployment. Existing services were not changed by the import.
 
-**Hosted studio:** [showroom-q4s4.onrender.com](https://showroom-q4s4.onrender.com) · sign-in required. See the [Render deployment guide](docs/deploy-render.md).
+**Hosted studio:** [showroom-q4s4.onrender.com](https://showroom-q4s4.onrender.com) · open without sign-in. See the [Render deployment guide](docs/deploy-render.md).
 
 **A room you can direct while you think.**
 

@@ -79,3 +79,7 @@ The deck now follows the requested sequence: hero + SHOWROOM only; problem / why
 ## Automatic document sharing
 
 The 52-test backend suite includes six sharing cases: recipient binding and approval, concurrent saves, uncertain invitation recovery, rejected-request retry, content-verification gating, and sharing readback recovery. [Browser verification](sharing-browser.json) uses intercepted API responses to prove recipient disclosure, failure/retry, pending/confirmed states and mobile layout. [Actual permission readback](sharing-provider-readback.json) validates the helper against the three previously authorized invitations without creating documents or sending more invitations.
+
+## Public studio access
+
+The participant subsequently requested removal of the Render sign-in requirement. The live web service now runs without `SHOWROOM_ACCESS_PASSWORD` or `SHOWROOM_REQUIRE_AUTH`. Earlier 401/authentication receipts describe the prior protected configuration. New public-access verification is recorded in [the public access receipt](render-public-access.json). The deck’s QR slide and current READMEs no longer request sign-in. New deployments can still opt into the existing password gate.

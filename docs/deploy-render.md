@@ -1,10 +1,10 @@
 # Deploy SHOWROOM on Render
 
-**Deployed:** [SHOWROOM studio](https://showroom-q4s4.onrender.com). Username: `showroom`. For this API deployment, the password is the private `RENDER_STUDIO_PASSWORD` value in the local ignored `.env` (also `SHOWROOM_ACCESS_PASSWORD` in the Render web service environment). Never place the password in the deck, QR code or repository.
+**Deployed:** [SHOWROOM studio](https://showroom-q4s4.onrender.com) is public and opens without a username or password. The participant requested removal of the hosted sign-in gate; `SHOWROOM_ACCESS_PASSWORD` and `SHOWROOM_REQUIRE_AUTH` were removed from the Render web service environment.
 
 Both services are live. Hosted desktop/mobile, private Neo4j recommendations, Ambiguous reads, OpenAI item identification and Exa Amazon results passed. A repeated visual search measured 198 ms end-to-end versus 16.5 seconds cold. The hosted Orbis attempt reached Reactor but was rejected with HTTP 429 because the account already had its one allowed concurrent session; hosted frames were not verified. The UI displayed the capacity error. Earlier actual local Orbis streaming remains separately verified. See [HTTP evidence](evidence/render-http-verification.json) and [browser evidence](evidence/render-browser-verification.json).
 
-The production Docker image serves the React frontend, Python API and Reactor WASM runtime on one HTTPS origin. `PORT` controls the listening port. SQLite state and uploads use `/var/data/showroom`; a private Neo4j service uses its own `/data` disk. The hosted studio requires HTTP Basic sign-in (username `showroom`) because it can use paid APIs and read the connected Ambiguous workspace.
+The production Docker image serves the React frontend, Python API and Reactor WASM runtime on one HTTPS origin. `PORT` controls the listening port. SQLite state and uploads use `/var/data/showroom`; a private Neo4j service uses its own `/data` disk. The application supports optional HTTP Basic sign-in (username `showroom`). The checked-in Blueprint still defaults to protected access for new deployments; the current live studio has this optional gate disabled at the participant’s request.
 
 The reviewed [Render Blueprint](../render.yaml) creates:
 
@@ -25,7 +25,7 @@ For the authorized API deployment, put `RENDER_API_KEY` in the ignored local `.e
 
 The helper creates the two services only after checking access and required provider keys. It generates separate `RENDER_NEO4J_PASSWORD` and `RENDER_STUDIO_PASSWORD` values in local `.env`, leaving the local Neo4j password unchanged. The Render control key and Qoder token are never sent to the running service. The helper preserves service/deploy IDs in ignored runtime storage and refuses to overwrite an unrelated existing service. If multiple workspaces are available, set `RENDER_OWNER_ID` explicitly.
 
-After Render finishes building, verify public health, authenticated frontend and WASM delivery, anonymous access rejection, Neo4j recommendations and repeat-search cache behavior. Repository publication alone does not prove a completed deployment. Clips saved on localhost stay on that browser origin; the Render site maintains its own browser clip storage. No previous local room uploads or workspace data are automatically copied to Render.
+After Render finishes building, verify health, frontend and WASM delivery, the configured access mode, Neo4j recommendations and repeat-search cache behavior. The optional live verification script accepts `--public` for this public studio; omit that flag when checking a protected deployment. Repository publication alone does not prove a completed deployment. Clips saved on localhost stay on that browser origin; the Render site maintains its own browser clip storage. No previous local room uploads or workspace data are automatically copied to Render.
 
 Local production verification:
 

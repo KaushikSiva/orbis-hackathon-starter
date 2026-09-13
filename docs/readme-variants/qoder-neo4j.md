@@ -1,6 +1,6 @@
 # SHOWROOM / Connected design memory
 
-**Hosted studio:** [showroom-q4s4.onrender.com](https://showroom-q4s4.onrender.com) · sign-in required. See the [Render deployment guide](../../docs/deploy-render.md).
+**Hosted studio:** [showroom-q4s4.onrender.com](https://showroom-q4s4.onrender.com) · open without sign-in. See the [Render deployment guide](../../docs/deploy-render.md).
 
 **Remember why a piece belongs in the room.**
 

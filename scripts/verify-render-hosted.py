@@ -15,10 +15,11 @@ url=private['services']['showroom']['url']
 frame=(root/'backend/data/runtime/search-benchmark-frame.jpg').read_bytes()
 receipt={'verified_at':datetime.now(timezone.utc).isoformat(),'url':url,'external_document_writes':0,'orbis_session_created':False}
 with httpx.Client(base_url=url,timeout=140) as client:
-    assert client.get('/').status_code==401
-    assert client.get('/api/ambiguous/documents').status_code==401
-    receipt['anonymous_workspace_status']=401
-    client.auth=('showroom',values['RENDER_STUDIO_PASSWORD'])
+    expected_status=200 if '--public' in sys.argv else 401
+    assert client.get('/').status_code==expected_status
+    assert client.get('/api/ambiguous/documents').status_code==expected_status
+    receipt['anonymous_workspace_status']=expected_status
+    if expected_status==401:client.auth=('showroom',values['RENDER_STUDIO_PASSWORD'])
     assert client.get('/').status_code==200
     assert client.get('/reactor/wasm/reactor_wasm_bg.wasm').status_code==200
     health=client.get('/api/health').json();assert health['integrations']['neo4j']['status']=='connected'

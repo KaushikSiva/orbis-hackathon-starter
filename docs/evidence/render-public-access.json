@@ -1,0 +1,12 @@
+{
+  "verified_at": "2026-09-13T00:24:44.358360+00:00",
+  "url": "https://showroom-q4s4.onrender.com",
+  "authentication_supplied": false,
+  "responses": {
+    "/": 200,
+    "/api/health": 200,
+    "/reactor/wasm/reactor_wasm.js": 200
+  },
+  "external_document_writes": 0,
+  "browser_opened_without_credentials": true
+}

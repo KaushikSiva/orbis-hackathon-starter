@@ -1,6 +1,6 @@
 # SHOWROOM
 
-**Hosted studio:** [showroom-q4s4.onrender.com](https://showroom-q4s4.onrender.com) · sign-in required. See the [Render deployment guide](docs/deploy-render.md).
+**Hosted studio:** [showroom-q4s4.onrender.com](https://showroom-q4s4.onrender.com) · open without sign-in. See the [Render deployment guide](docs/deploy-render.md).
 
 **Design the room. Keep the decisions.**
 
@@ -55,7 +55,7 @@ The existing two-minute pitch video predates these controls. The new [frame-shop
 
 ## Render hosting
 
-The [Render deployment guide](docs/deploy-render.md) includes the reviewed Docker setup, persistent private Neo4j, studio sign-in, costs and deployment commands.
+The [Render deployment guide](docs/deploy-render.md) includes the reviewed Docker setup, persistent private Neo4j, optional studio sign-in, costs and deployment commands.
 
 ## Integration access
 
